@@ -4,7 +4,7 @@
   import { scaleLinear } from "d3-scale";
   import { line, curveBumpX } from "d3-shape";
 
-  let keepCentral = false;
+  let keepCentral = true;
   let highlight = false;
   const highlightIDs = [1, 2, 3, 10, 14];
   const dehighlightOpacity = 0.2;
@@ -183,8 +183,10 @@
             : 1}>{division.data.data.name}</text
         >
       {/if}
-      <!--text x={x(year.year)} y={20 + division.y * vertSpace}
-        >{division.data.data.divisionID}</text-->
     {/each}
   {/each}
+  {#each Object.keys(cols) as legendColor,i}
+  <circle cx={10 + i * 140} cy={300} r={6} fill={cols[legendColor].fill} stroke={cols[legendColor].stroke}></circle>
+  <text x={20 + i*140} y={304} font-size={12} fill={cols[legendColor].stroke}>{legendColor}</text>
+{/each}
 </svg>
