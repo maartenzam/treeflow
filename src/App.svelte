@@ -1,20 +1,33 @@
 <script>
   import { huizhouData } from "./huizhouData.js";
+  import { kunmingData } from "./kunmingData.js";
   import { hierarchy } from "d3-hierarchy";
-  import { scaleLinear } from "d3-scale";
+  import { scaleLinear, scalePoint } from "d3-scale";
   import { line, curveBumpX } from "d3-shape";
+  import { extent } from 'd3-array';
 
-  let keepCentral = true;
+  let keepCentral = false;
   let highlight = false;
   const highlightIDs = [1, 2, 3, 10, 14];
   const dehighlightOpacity = 0.2;
 
-  const width = 600;
-  let x = scaleLinear()
-    .domain([1977, 2004])
-    .range([60, width - 50]);
+  let  vizData = huizhouData;
+  //let vizData = kunmingData;
 
-  let huizhouHierarchyData = huizhouData.map((d) => {
+  let yearExtent = extent(vizData, d => d.year)
+  let yearDomain = [yearExtent[0]-1, yearExtent[1]+1]
+  let pointYearDomain = vizData.map(d => d.year)
+
+  const width = 800;
+  const height = 400;
+  let x = scaleLinear()
+    .domain(yearDomain)
+    .range([60, width - 120]);
+  /*let x = scalePoint()
+    .domain(pointYearDomain)
+    .range([80, 250]);*/
+
+  let vizHierarchyData = vizData.map((d) => {
     let obj = {};
     obj.year = d.year;
     obj.divisions = returnDivisions(d, keepCentral);
@@ -59,7 +72,7 @@
   function getCoords(id, hierarchydata) {
     let divisionCoords = hierarchydata.map((yr) => {
       let obj = {};
-      //obj.year = yr.year;
+      obj.year = yr.year;
       obj.id = id;
       let y;
       if (
@@ -77,7 +90,7 @@
   }
 
   const lineData = Array.from({ length: 16 }, (_, i) => i + 1).map((d) =>
-    getCoords(d, huizhouHierarchyData)
+    getCoords(d, vizHierarchyData)
   );
 
   let vertSpace = 14;
@@ -86,6 +99,7 @@
     countyLevelCity: { fill: "#fde0ef", stroke: "#d973a8" },
     district: { fill: "#e9a3c9", stroke: "#bf3d81" },
     prefectureLevelCity: { fill: "#bf3d81", stroke: "#c51b7d" },
+    AutonomousCounty: { fill: "#a2c6eb", stroke: "#2d6196"}
   };
 
   const lineGenerator = line()
@@ -104,6 +118,9 @@
       { values: { year: 1988, y: 11 } },
     ],
   ];
+
+  //fill={cols[division.data.data.status].fill}
+  //stroke={cols[division.data.data.status].stroke}
 </script>
 
 <label>
@@ -115,7 +132,7 @@
   <input type="checkbox" bind:checked={keepCentral} />
   Keep Huizhou in the middle
 </label>
-<svg width={600} height={600}>
+<svg width={width} height={400}>
   {#each lineData as line}
     <path
       d={lineGenerator(line)}
@@ -133,10 +150,9 @@
       fill={"none"}
       stroke={"#eeeeee"}
       opacity={!highlight ? 1 : dehighlightOpacity}
-      stroke-width={6}
-    />
+      stroke-width={6}/>
   {/each}
-  {#each huizhouHierarchyData as year}
+  {#each vizHierarchyData as year}
     <text x={x(year.year)} y={10} text-anchor="middle" font-size={10}
       >{year.year === 1978 || year.year === 1979
         ? year.year.toString().substring(2)
@@ -156,7 +172,7 @@
           ? dehighlightOpacity
           : 1}
       />
-      {#if year.year === 1978}
+      {#if year.year === yearExtent[0]}
         <text
           x={x(year.year) - 12}
           y={20 + division.y * vertSpace + 4}
@@ -167,10 +183,9 @@
             ? 1
             : highlight
             ? dehighlightOpacity
-            : 1}>{division.data.data.name}</text
-        >
+            : 1}>{division.data.data.name}</text>
       {/if}
-      {#if year.year === 2003}
+      {#if year.year === yearExtent[1]}
         <text
           x={x(year.year) + 8}
           y={20 + division.y * vertSpace + 4}
@@ -180,8 +195,7 @@
             ? 1
             : highlight
             ? dehighlightOpacity
-            : 1}>{division.data.data.name}</text
-        >
+            : 1}>{division.data.data.name}</text>
       {/if}
     {/each}
   {/each}

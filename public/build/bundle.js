@@ -679,6 +679,240 @@ var app = (function () {
       },
     ];
 
+    let kunmingData = [
+        {
+          year: 1978,
+          data: {
+            name: "root",
+            children: [
+              {
+                name: "Kunming Prefecture-level City",
+                children: [
+                  { divisionID: 1, name: "Panlong", status: "district" },
+                  { divisionID: 2, name: "Wuhua", status: "district" },
+                  { divisionID: 3, name: "Guandu", status: "district" },
+                  { divisionID: 4, name: "Xishan", status: "district" },
+                  { divisionID: 5, name: "Chenggong", status: "County" },
+                  { divisionID: 6, name: "Jinning", status: "County" },
+                  { divisionID: 7, name: "Anning", status: "County" },
+                  { divisionID: 8, name: "Fumin", status: "County" },
+                ],
+              },
+            ],
+          },
+        },
+        {
+          year: 1983,
+          data: {
+            name: "root",
+            children: [
+                {
+                  name: "Kunming Prefecture-level City",
+                  children: [
+                    { divisionID: 1, name: "Panlong", status: "district" },
+                    { divisionID: 2, name: "Wuhua", status: "district" },
+                    { divisionID: 3, name: "Guandu", status: "district" },
+                    { divisionID: 4, name: "Xishan", status: "district" },
+                    { divisionID: 5, name: "Chenggong", status: "County" },
+                    { divisionID: 6, name: "Jinning", status: "County" },
+                    { divisionID: 7, name: "Anning", status: "County" },
+                    { divisionID: 8, name: "Fumin", status: "County" },
+                    { divisionID: 9, name: "Yiliang", status: "County" },
+                    { divisionID: 10, name: "Songming", status: "County" },
+                    { divisionID: 11, name: "Luquan", status: "County" },
+                    { divisionID: 12, name: "Lunan Yizu", status: "AutonomousCounty" },
+                  ],
+                },
+              ],
+          },
+        },
+        {
+          year: 1985,
+          data: {
+            name: "root",
+            children: [
+                {
+                  name: "Kunming Prefecture-level City",
+                  children: [
+                    { divisionID: 1, name: "Panlong", status: "district" },
+                    { divisionID: 2, name: "Wuhua", status: "district" },
+                    { divisionID: 3, name: "Guandu", status: "district" },
+                    { divisionID: 4, name: "Xishan", status: "district" },
+                    { divisionID: 5, name: "Chenggong", status: "County" },
+                    { divisionID: 6, name: "Jinning", status: "County" },
+                    { divisionID: 7, name: "Anning", status: "County" },
+                    { divisionID: 8, name: "Fumin", status: "County" },
+                    { divisionID: 9, name: "Yiliang", status: "County" },
+                    { divisionID: 10, name: "Songming", status: "County" },
+                    { divisionID: 11, name: "Luquan Yizu Miaozu", status: "AutonomousCounty" },
+                    { divisionID: 12, name: "Lunan Yizu", status: "AutonomousCounty" },
+                  ],
+                },
+              ],
+          },
+        },
+        {
+          year: 1995,
+          data: {
+            name: "root",
+            children: [
+                {
+                  name: "Kunming Prefecture-level City",
+                  children: [
+                    { divisionID: 1, name: "Panlong", status: "district" },
+                    { divisionID: 2, name: "Wuhua", status: "district" },
+                    { divisionID: 3, name: "Guandu", status: "district" },
+                    { divisionID: 4, name: "Xishan", status: "district" },
+                    { divisionID: 5, name: "Chenggong", status: "County" },
+                    { divisionID: 6, name: "Jinning", status: "County" },
+                    { divisionID: 7, name: "Anning", status: "countyLevelCity" },
+                    { divisionID: 8, name: "Fumin", status: "County" },
+                    { divisionID: 9, name: "Yiliang", status: "County" },
+                    { divisionID: 10, name: "Songming", status: "County" },
+                    { divisionID: 11, name: "Luquan Yizu Miaozu", status: "AutonomousCounty" },
+                    { divisionID: 12, name: "Lunan Yizu", status: "AutonomousCounty" },
+                  ],
+                },
+              ],
+          },
+        },
+        {
+          year: 1998,
+          data: {
+            name: "root",
+            children: [
+                {
+                  name: "Kunming Prefecture-level City",
+                  children: [
+                    { divisionID: 1, name: "Panlong", status: "district" },
+                    { divisionID: 2, name: "Wuhua", status: "district" },
+                    { divisionID: 3, name: "Guandu", status: "district" },
+                    { divisionID: 4, name: "Xishan", status: "district" },
+                    { divisionID: 5, name: "Chenggong", status: "County" },
+                    { divisionID: 6, name: "Jinning", status: "County" },
+                    { divisionID: 7, name: "Anning", status: "countyLevelCity" },
+                    { divisionID: 8, name: "Fumin", status: "County" },
+                    { divisionID: 9, name: "Yiliang", status: "County" },
+                    { divisionID: 10, name: "Songming", status: "County" },
+                    { divisionID: 11, name: "Luquan Yizu Miaozu", status: "AutonomousCounty" },
+                    { divisionID: 12, name: "Lunan Yizu", status: "AutonomousCounty" },
+                    { divisionID: 13, name: "Dongchuan", status: "district" },
+                    { divisionID: 14, name: "Xundian Yizu Huizi", status: "AutonomousCounty" },
+                  ],
+                },
+              ],
+          },
+        },
+        {
+          year: 2004,
+          data: {
+            name: "root",
+            children: [
+                {
+                  name: "Kunming Prefecture-level City",
+                  children: [
+                    { divisionID: 1, name: "Panlong", status: "district" },
+                    { divisionID: 2, name: "Wuhua", status: "district" },
+                    { divisionID: 3, name: "Guandu", status: "district" },
+                    { divisionID: 4, name: "Xishan", status: "district" },
+                    { divisionID: 5, name: "Chenggong", status: "County" },
+                    { divisionID: 6, name: "Jinning", status: "County" },
+                    { divisionID: 7, name: "Anning", status: "countyLevelCity" },
+                    { divisionID: 8, name: "Fumin", status: "County" },
+                    { divisionID: 9, name: "Yiliang", status: "County" },
+                    { divisionID: 10, name: "Songming", status: "County" },
+                    { divisionID: 11, name: "Luquan Yizu Miaozu", status: "AutonomousCounty" },
+                    { divisionID: 12, name: "Lunan Yizu", status: "AutonomousCounty" },
+                    { divisionID: 13, name: "Dongchuan", status: "district" },
+                    { divisionID: 14, name: "Xundian Yizu Huizi", status: "AutonomousCounty" },
+                  ],
+                },
+              ],
+          },
+        },
+        {
+          year: 2011,
+          data: {
+            name: "root",
+            children: [
+                {
+                  name: "Kunming Prefecture-level City",
+                  children: [
+                    { divisionID: 1, name: "Panlong", status: "district" },
+                    { divisionID: 2, name: "Wuhua", status: "district" },
+                    { divisionID: 3, name: "Guandu", status: "district" },
+                    { divisionID: 4, name: "Xishan", status: "district" },
+                    { divisionID: 5, name: "Chenggong", status: "district" },
+                    { divisionID: 6, name: "Jinning", status: "County" },
+                    { divisionID: 7, name: "Anning", status: "countyLevelCity" },
+                    { divisionID: 8, name: "Fumin", status: "County" },
+                    { divisionID: 9, name: "Yiliang", status: "County" },
+                    { divisionID: 10, name: "Songming", status: "County" },
+                    { divisionID: 11, name: "Luquan Yizu Miaozu", status: "AutonomousCounty" },
+                    { divisionID: 12, name: "Lunan Yizu", status: "AutonomousCounty" },
+                    { divisionID: 13, name: "Dongchuan", status: "district" },
+                    { divisionID: 14, name: "Xundian Yizu Huizi", status: "AutonomousCounty" },
+                  ],
+                },
+              ],
+          },
+        },
+        {
+            year: 2016,
+            data: {
+              name: "root",
+              children: [
+                  {
+                    name: "Kunming Prefecture-level City",
+                    children: [
+                      { divisionID: 1, name: "Panlong", status: "district" },
+                      { divisionID: 2, name: "Wuhua", status: "district" },
+                      { divisionID: 3, name: "Guandu", status: "district" },
+                      { divisionID: 4, name: "Xishan", status: "district" },
+                      { divisionID: 5, name: "Chenggong", status: "district" },
+                      { divisionID: 6, name: "Jinning", status: "district" },
+                      { divisionID: 7, name: "Anning", status: "countyLevelCity" },
+                      { divisionID: 8, name: "Fumin", status: "County" },
+                      { divisionID: 9, name: "Yiliang", status: "County" },
+                      { divisionID: 10, name: "Songming", status: "County" },
+                      { divisionID: 11, name: "Luquan Yizu Miaozu", status: "AutonomousCounty" },
+                      { divisionID: 12, name: "Lunan Yizu", status: "AutonomousCounty" },
+                      { divisionID: 13, name: "Dongchuan", status: "district" },
+                      { divisionID: 14, name: "Xundian Yizu Huizi", status: "AutonomousCounty" },
+                    ],
+                  },
+                ],
+            },
+          },
+          {
+            year: 2017,
+            data: {
+              name: "root",
+              children: [
+                  {
+                    name: "Kunming Prefecture-level City",
+                    children: [
+                      { divisionID: 1, name: "Panlong", status: "district" },
+                      { divisionID: 2, name: "Wuhua", status: "district" },
+                      { divisionID: 3, name: "Guandu", status: "district" },
+                      { divisionID: 4, name: "Xishan", status: "district" },
+                      { divisionID: 5, name: "Chenggong", status: "district" },
+                      { divisionID: 6, name: "Jinning", status: "district" },
+                      { divisionID: 7, name: "Anning", status: "countyLevelCity" },
+                      { divisionID: 8, name: "Fumin", status: "County" },
+                      { divisionID: 9, name: "Yiliang", status: "County" },
+                      { divisionID: 10, name: "Songming", status: "County" },
+                      { divisionID: 11, name: "Luquan Yizu Miaozu", status: "AutonomousCounty" },
+                      { divisionID: 12, name: "Lunan Yizu", status: "AutonomousCounty" },
+                      { divisionID: 13, name: "Dongchuan", status: "district" },
+                      { divisionID: 14, name: "Xundian Yizu Huizi", status: "AutonomousCounty" },
+                    ],
+                  },
+                ],
+            },
+          },
+      ];
+
     function count(node) {
       var sum = 0,
           children = node.children,
@@ -968,6 +1202,81 @@ var app = (function () {
     bisector(number$1).center;
     var bisect = bisectRight;
 
+    function extent(values, valueof) {
+      let min;
+      let max;
+      if (valueof === undefined) {
+        for (const value of values) {
+          if (value != null) {
+            if (min === undefined) {
+              if (value >= value) min = max = value;
+            } else {
+              if (min > value) min = value;
+              if (max < value) max = value;
+            }
+          }
+        }
+      } else {
+        let index = -1;
+        for (let value of values) {
+          if ((value = valueof(value, ++index, values)) != null) {
+            if (min === undefined) {
+              if (value >= value) min = max = value;
+            } else {
+              if (min > value) min = value;
+              if (max < value) max = value;
+            }
+          }
+        }
+      }
+      return [min, max];
+    }
+
+    class InternMap extends Map {
+      constructor(entries, key = keyof) {
+        super();
+        Object.defineProperties(this, {_intern: {value: new Map()}, _key: {value: key}});
+        if (entries != null) for (const [key, value] of entries) this.set(key, value);
+      }
+      get(key) {
+        return super.get(intern_get(this, key));
+      }
+      has(key) {
+        return super.has(intern_get(this, key));
+      }
+      set(key, value) {
+        return super.set(intern_set(this, key), value);
+      }
+      delete(key) {
+        return super.delete(intern_delete(this, key));
+      }
+    }
+
+    function intern_get({_intern, _key}, value) {
+      const key = _key(value);
+      return _intern.has(key) ? _intern.get(key) : value;
+    }
+
+    function intern_set({_intern, _key}, value) {
+      const key = _key(value);
+      if (_intern.has(key)) return _intern.get(key);
+      _intern.set(key, value);
+      return value;
+    }
+
+    function intern_delete({_intern, _key}, value) {
+      const key = _key(value);
+      if (_intern.has(key)) {
+        value = _intern.get(key);
+        _intern.delete(key);
+      }
+      return value;
+    }
+
+    function keyof(value) {
+      return value !== null && typeof value === "object" ? value.valueOf() : value;
+    }
+
     var e10 = Math.sqrt(50),
         e5 = Math.sqrt(10),
         e2 = Math.sqrt(2);
@@ -1023,6 +1332,20 @@ var app = (function () {
       return stop < start ? -step1 : step1;
     }
 
+    function range(start, stop, step) {
+      start = +start, stop = +stop, step = (n = arguments.length) < 2 ? (stop = start, start = 0, 1) : n < 3 ? 1 : +step;
+
+      var i = -1,
+          n = Math.max(0, Math.ceil((stop - start) / step)) | 0,
+          range = new Array(n);
+
+      while (++i < n) {
+        range[i] = start + i * step;
+      }
+
+      return range;
+    }
+
     function initRange(domain, range) {
       switch (arguments.length) {
         case 0: break;
@@ -1030,6 +1353,148 @@ var app = (function () {
         default: this.range(range).domain(domain); break;
       }
       return this;
+    }
+
+    const implicit = Symbol("implicit");
+
+    function ordinal() {
+      var index = new InternMap(),
+          domain = [],
+          range = [],
+          unknown = implicit;
+
+      function scale(d) {
+        let i = index.get(d);
+        if (i === undefined) {
+          if (unknown !== implicit) return unknown;
+          index.set(d, i = domain.push(d) - 1);
+        }
+        return range[i % range.length];
+      }
+
+      scale.domain = function(_) {
+        if (!arguments.length) return domain.slice();
+        domain = [], index = new InternMap();
+        for (const value of _) {
+          if (index.has(value)) continue;
+          index.set(value, domain.push(value) - 1);
+        }
+        return scale;
+      };
+
+      scale.range = function(_) {
+        return arguments.length ? (range = Array.from(_), scale) : range.slice();
+      };
+
+      scale.unknown = function(_) {
+        return arguments.length ? (unknown = _, scale) : unknown;
+      };
+
+      scale.copy = function() {
+        return ordinal(domain, range).unknown(unknown);
+      };
+
+      initRange.apply(scale, arguments);
+
+      return scale;
+    }
+
+    function band() {
+      var scale = ordinal().unknown(undefined),
+          domain = scale.domain,
+          ordinalRange = scale.range,
+          r0 = 0,
+          r1 = 1,
+          step,
+          bandwidth,
+          round = false,
+          paddingInner = 0,
+          paddingOuter = 0,
+          align = 0.5;
+
+      delete scale.unknown;
+
+      function rescale() {
+        var n = domain().length,
+            reverse = r1 < r0,
+            start = reverse ? r1 : r0,
+            stop = reverse ? r0 : r1;
+        step = (stop - start) / Math.max(1, n - paddingInner + paddingOuter * 2);
+        if (round) step = Math.floor(step);
+        start += (stop - start - step * (n - paddingInner)) * align;
+        bandwidth = step * (1 - paddingInner);
+        if (round) start = Math.round(start), bandwidth = Math.round(bandwidth);
+        var values = range(n).map(function(i) { return start + step * i; });
+        return ordinalRange(reverse ? values.reverse() : values);
+      }
+
+      scale.domain = function(_) {
+        return arguments.length ? (domain(_), rescale()) : domain();
+      };
+
+      scale.range = function(_) {
+        return arguments.length ? ([r0, r1] = _, r0 = +r0, r1 = +r1, rescale()) : [r0, r1];
+      };
+
+      scale.rangeRound = function(_) {
+        return [r0, r1] = _, r0 = +r0, r1 = +r1, round = true, rescale();
+      };
+
+      scale.bandwidth = function() {
+        return bandwidth;
+      };
+
+      scale.step = function() {
+        return step;
+      };
+
+      scale.round = function(_) {
+        return arguments.length ? (round = !!_, rescale()) : round;
+      };
+
+      scale.padding = function(_) {
+        return arguments.length ? (paddingInner = Math.min(1, paddingOuter = +_), rescale()) : paddingInner;
+      };
+
+      scale.paddingInner = function(_) {
+        return arguments.length ? (paddingInner = Math.min(1, _), rescale()) : paddingInner;
+      };
+
+      scale.paddingOuter = function(_) {
+        return arguments.length ? (paddingOuter = +_, rescale()) : paddingOuter;
+      };
+
+      scale.align = function(_) {
+        return arguments.length ? (align = Math.max(0, Math.min(1, _)), rescale()) : align;
+      };
+
+      scale.copy = function() {
+        return band(domain(), [r0, r1])
+            .round(round)
+            .paddingInner(paddingInner)
+            .paddingOuter(paddingOuter)
+            .align(align);
+      };
+
+      return initRange.apply(rescale(), arguments);
+    }
+
+    function pointish(scale) {
+      var copy = scale.copy;
+
+      scale.padding = scale.paddingOuter;
+      delete scale.paddingInner;
+      delete scale.paddingOuter;
+
+      scale.copy = function() {
+        return pointish(copy());
+      };
+
+      return scale;
+    }
+
+    function point() {
+      return pointish(band.apply(null, arguments).paddingInner(1));
     }
 
     function define(constructor, factory, prototype) {
@@ -2441,36 +2906,36 @@ var app = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[13] = list[i];
-    	child_ctx[15] = i;
+    	child_ctx[17] = list[i];
+    	child_ctx[19] = i;
     	return child_ctx;
     }
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[16] = list[i];
+    	child_ctx[20] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_2(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[19] = list[i];
+    	child_ctx[23] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_3(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[22] = list[i];
+    	child_ctx[26] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_4(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[22] = list[i];
+    	child_ctx[26] = list[i];
     	return child_ctx;
     }
 
-    // (119:2) {#each lineData as line}
+    // (136:2) {#each lineData as line}
     function create_each_block_4(ctx) {
     	let path;
     	let path_opacity_value;
@@ -2478,22 +2943,22 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			path = svg_element("path");
-    			attr_dev(path, "d", /*lineGenerator*/ ctx[8](/*line*/ ctx[22]));
+    			attr_dev(path, "d", /*lineGenerator*/ ctx[9](/*line*/ ctx[26]));
     			attr_dev(path, "fill", "none");
     			attr_dev(path, "stroke", "#eeeeee");
 
-    			attr_dev(path, "opacity", path_opacity_value = !/*highlight*/ ctx[1] && /*highlightIDs*/ ctx[2].includes(/*line*/ ctx[22].id)
+    			attr_dev(path, "opacity", path_opacity_value = !/*highlight*/ ctx[1] && /*highlightIDs*/ ctx[2].includes(/*line*/ ctx[26].id)
     			? dehighlightOpacity
     			: 1);
 
     			attr_dev(path, "stroke-width", 6);
-    			add_location(path, file, 119, 4, 3215);
+    			add_location(path, file, 136, 4, 3778);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, path, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*highlight*/ 2 && path_opacity_value !== (path_opacity_value = !/*highlight*/ ctx[1] && /*highlightIDs*/ ctx[2].includes(/*line*/ ctx[22].id)
+    			if (dirty & /*highlight*/ 2 && path_opacity_value !== (path_opacity_value = !/*highlight*/ ctx[1] && /*highlightIDs*/ ctx[2].includes(/*line*/ ctx[26].id)
     			? dehighlightOpacity
     			: 1)) {
     				attr_dev(path, "opacity", path_opacity_value);
@@ -2508,14 +2973,14 @@ var app = (function () {
     		block,
     		id: create_each_block_4.name,
     		type: "each",
-    		source: "(119:2) {#each lineData as line}",
+    		source: "(136:2) {#each lineData as line}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (130:2) {#each splitData as line}
+    // (147:2) {#each splitData as line}
     function create_each_block_3(ctx) {
     	let path;
     	let path_opacity_value;
@@ -2523,12 +2988,12 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			path = svg_element("path");
-    			attr_dev(path, "d", /*lineGenerator*/ ctx[8](/*line*/ ctx[22]));
+    			attr_dev(path, "d", /*lineGenerator*/ ctx[9](/*line*/ ctx[26]));
     			attr_dev(path, "fill", "none");
     			attr_dev(path, "stroke", "#eeeeee");
     			attr_dev(path, "opacity", path_opacity_value = !/*highlight*/ ctx[1] ? 1 : dehighlightOpacity);
     			attr_dev(path, "stroke-width", 6);
-    			add_location(path, file, 130, 4, 3470);
+    			add_location(path, file, 147, 4, 4033);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, path, anchor);
@@ -2547,17 +3012,17 @@ var app = (function () {
     		block,
     		id: create_each_block_3.name,
     		type: "each",
-    		source: "(130:2) {#each splitData as line}",
+    		source: "(147:2) {#each splitData as line}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (159:6) {#if year.year === 1978}
+    // (175:6) {#if year.year === yearExtent[0]}
     function create_if_block_1(ctx) {
     	let text_1;
-    	let t_value = /*division*/ ctx[19].data.data.name + "";
+    	let t_value = /*division*/ ctx[23].data.data.name + "";
     	let t;
     	let text_1_opacity_value;
 
@@ -2565,24 +3030,24 @@ var app = (function () {
     		c: function create() {
     			text_1 = svg_element("text");
     			t = text(t_value);
-    			attr_dev(text_1, "x", /*x*/ ctx[3](/*year*/ ctx[16].year) - 12);
-    			attr_dev(text_1, "y", 20 + /*division*/ ctx[19].y * /*vertSpace*/ ctx[6] + 4);
+    			attr_dev(text_1, "x", /*x*/ ctx[4](/*year*/ ctx[20].year) - 12);
+    			attr_dev(text_1, "y", 20 + /*division*/ ctx[23].y * /*vertSpace*/ ctx[7] + 4);
     			attr_dev(text_1, "font-size", 11);
     			attr_dev(text_1, "text-anchor", "end");
-    			attr_dev(text_1, "fill", /*cols*/ ctx[7][/*division*/ ctx[19].data.data.status].stroke);
+    			attr_dev(text_1, "fill", /*cols*/ ctx[8][/*division*/ ctx[23].data.data.status].stroke);
 
-    			attr_dev(text_1, "opacity", text_1_opacity_value = /*highlightIDs*/ ctx[2].includes(/*division*/ ctx[19].data.data.divisionID)
+    			attr_dev(text_1, "opacity", text_1_opacity_value = /*highlightIDs*/ ctx[2].includes(/*division*/ ctx[23].data.data.divisionID)
     			? 1
     			: /*highlight*/ ctx[1] ? dehighlightOpacity : 1);
 
-    			add_location(text_1, file, 159, 8, 4345);
+    			add_location(text_1, file, 175, 8, 4908);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, text_1, anchor);
     			append_dev(text_1, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*highlight*/ 2 && text_1_opacity_value !== (text_1_opacity_value = /*highlightIDs*/ ctx[2].includes(/*division*/ ctx[19].data.data.divisionID)
+    			if (dirty & /*highlight*/ 2 && text_1_opacity_value !== (text_1_opacity_value = /*highlightIDs*/ ctx[2].includes(/*division*/ ctx[23].data.data.divisionID)
     			? 1
     			: /*highlight*/ ctx[1] ? dehighlightOpacity : 1)) {
     				attr_dev(text_1, "opacity", text_1_opacity_value);
@@ -2597,17 +3062,17 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(159:6) {#if year.year === 1978}",
+    		source: "(175:6) {#if year.year === yearExtent[0]}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (173:6) {#if year.year === 2003}
+    // (188:6) {#if year.year === yearExtent[1]}
     function create_if_block(ctx) {
     	let text_1;
-    	let t_value = /*division*/ ctx[19].data.data.name + "";
+    	let t_value = /*division*/ ctx[23].data.data.name + "";
     	let t;
     	let text_1_opacity_value;
 
@@ -2615,23 +3080,23 @@ var app = (function () {
     		c: function create() {
     			text_1 = svg_element("text");
     			t = text(t_value);
-    			attr_dev(text_1, "x", /*x*/ ctx[3](/*year*/ ctx[16].year) + 8);
-    			attr_dev(text_1, "y", 20 + /*division*/ ctx[19].y * /*vertSpace*/ ctx[6] + 4);
+    			attr_dev(text_1, "x", /*x*/ ctx[4](/*year*/ ctx[20].year) + 8);
+    			attr_dev(text_1, "y", 20 + /*division*/ ctx[23].y * /*vertSpace*/ ctx[7] + 4);
     			attr_dev(text_1, "font-size", 11);
-    			attr_dev(text_1, "fill", /*cols*/ ctx[7][/*division*/ ctx[19].data.data.status].stroke);
+    			attr_dev(text_1, "fill", /*cols*/ ctx[8][/*division*/ ctx[23].data.data.status].stroke);
 
-    			attr_dev(text_1, "opacity", text_1_opacity_value = /*highlightIDs*/ ctx[2].includes(/*division*/ ctx[19].data.data.divisionID)
+    			attr_dev(text_1, "opacity", text_1_opacity_value = /*highlightIDs*/ ctx[2].includes(/*division*/ ctx[23].data.data.divisionID)
     			? 1
     			: /*highlight*/ ctx[1] ? dehighlightOpacity : 1);
 
-    			add_location(text_1, file, 173, 8, 4795);
+    			add_location(text_1, file, 188, 8, 5358);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, text_1, anchor);
     			append_dev(text_1, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*highlight*/ 2 && text_1_opacity_value !== (text_1_opacity_value = /*highlightIDs*/ ctx[2].includes(/*division*/ ctx[19].data.data.divisionID)
+    			if (dirty & /*highlight*/ 2 && text_1_opacity_value !== (text_1_opacity_value = /*highlightIDs*/ ctx[2].includes(/*division*/ ctx[23].data.data.divisionID)
     			? 1
     			: /*highlight*/ ctx[1] ? dehighlightOpacity : 1)) {
     				attr_dev(text_1, "opacity", text_1_opacity_value);
@@ -2646,21 +3111,21 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(173:6) {#if year.year === 2003}",
+    		source: "(188:6) {#if year.year === yearExtent[1]}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (145:4) {#each year.divisions as division}
+    // (161:4) {#each year.divisions as division}
     function create_each_block_2(ctx) {
     	let circle;
     	let circle_opacity_value;
     	let if_block0_anchor;
     	let if_block1_anchor;
-    	let if_block0 = /*year*/ ctx[16].year === 1978 && create_if_block_1(ctx);
-    	let if_block1 = /*year*/ ctx[16].year === 2003 && create_if_block(ctx);
+    	let if_block0 = /*year*/ ctx[20].year === /*yearExtent*/ ctx[3][0] && create_if_block_1(ctx);
+    	let if_block1 = /*year*/ ctx[20].year === /*yearExtent*/ ctx[3][1] && create_if_block(ctx);
 
     	const block = {
     		c: function create() {
@@ -2669,18 +3134,18 @@ var app = (function () {
     			if_block0_anchor = empty();
     			if (if_block1) if_block1.c();
     			if_block1_anchor = empty();
-    			attr_dev(circle, "cx", /*x*/ ctx[3](/*year*/ ctx[16].year));
-    			attr_dev(circle, "cy", 20 + /*division*/ ctx[19].y * /*vertSpace*/ ctx[6]);
+    			attr_dev(circle, "cx", /*x*/ ctx[4](/*year*/ ctx[20].year));
+    			attr_dev(circle, "cy", 20 + /*division*/ ctx[23].y * /*vertSpace*/ ctx[7]);
     			attr_dev(circle, "r", 6);
-    			attr_dev(circle, "fill", /*cols*/ ctx[7][/*division*/ ctx[19].data.data.status].fill);
-    			attr_dev(circle, "stroke", /*cols*/ ctx[7][/*division*/ ctx[19].data.data.status].stroke);
+    			attr_dev(circle, "fill", /*cols*/ ctx[8][/*division*/ ctx[23].data.data.status].fill);
+    			attr_dev(circle, "stroke", /*cols*/ ctx[8][/*division*/ ctx[23].data.data.status].stroke);
     			attr_dev(circle, "stroke-width", 1);
 
-    			attr_dev(circle, "opacity", circle_opacity_value = /*highlightIDs*/ ctx[2].includes(/*division*/ ctx[19].data.data.divisionID)
+    			attr_dev(circle, "opacity", circle_opacity_value = /*highlightIDs*/ ctx[2].includes(/*division*/ ctx[23].data.data.divisionID)
     			? 1
     			: /*highlight*/ ctx[1] ? dehighlightOpacity : 1);
 
-    			add_location(circle, file, 145, 6, 3923);
+    			add_location(circle, file, 161, 6, 4477);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, circle, anchor);
@@ -2690,14 +3155,14 @@ var app = (function () {
     			insert_dev(target, if_block1_anchor, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*highlight*/ 2 && circle_opacity_value !== (circle_opacity_value = /*highlightIDs*/ ctx[2].includes(/*division*/ ctx[19].data.data.divisionID)
+    			if (dirty & /*highlight*/ 2 && circle_opacity_value !== (circle_opacity_value = /*highlightIDs*/ ctx[2].includes(/*division*/ ctx[23].data.data.divisionID)
     			? 1
     			: /*highlight*/ ctx[1] ? dehighlightOpacity : 1)) {
     				attr_dev(circle, "opacity", circle_opacity_value);
     			}
 
-    			if (/*year*/ ctx[16].year === 1978) if_block0.p(ctx, dirty);
-    			if (/*year*/ ctx[16].year === 2003) if_block1.p(ctx, dirty);
+    			if (/*year*/ ctx[20].year === /*yearExtent*/ ctx[3][0]) if_block0.p(ctx, dirty);
+    			if (/*year*/ ctx[20].year === /*yearExtent*/ ctx[3][1]) if_block1.p(ctx, dirty);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(circle);
@@ -2712,24 +3177,24 @@ var app = (function () {
     		block,
     		id: create_each_block_2.name,
     		type: "each",
-    		source: "(145:4) {#each year.divisions as division}",
+    		source: "(161:4) {#each year.divisions as division}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (139:2) {#each huizhouHierarchyData as year}
+    // (155:2) {#each vizHierarchyData as year}
     function create_each_block_1(ctx) {
     	let text_1;
 
-    	let t_value = (/*year*/ ctx[16].year === 1978 || /*year*/ ctx[16].year === 1979
-    	? /*year*/ ctx[16].year.toString().substring(2)
-    	: /*year*/ ctx[16].year) + "";
+    	let t_value = (/*year*/ ctx[20].year === 1978 || /*year*/ ctx[20].year === 1979
+    	? /*year*/ ctx[20].year.toString().substring(2)
+    	: /*year*/ ctx[20].year) + "";
 
     	let t;
     	let each_1_anchor;
-    	let each_value_2 = /*year*/ ctx[16].divisions;
+    	let each_value_2 = /*year*/ ctx[20].divisions;
     	validate_each_argument(each_value_2);
     	let each_blocks = [];
 
@@ -2747,11 +3212,11 @@ var app = (function () {
     			}
 
     			each_1_anchor = empty();
-    			attr_dev(text_1, "x", /*x*/ ctx[3](/*year*/ ctx[16].year));
+    			attr_dev(text_1, "x", /*x*/ ctx[4](/*year*/ ctx[20].year));
     			attr_dev(text_1, "y", 10);
     			attr_dev(text_1, "text-anchor", "middle");
     			attr_dev(text_1, "font-size", 10);
-    			add_location(text_1, file, 139, 4, 3686);
+    			add_location(text_1, file, 155, 4, 4240);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, text_1, anchor);
@@ -2764,8 +3229,8 @@ var app = (function () {
     			insert_dev(target, each_1_anchor, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*x, huizhouHierarchyData, vertSpace, cols, highlightIDs, highlight, dehighlightOpacity*/ 222) {
-    				each_value_2 = /*year*/ ctx[16].divisions;
+    			if (dirty & /*x, vizHierarchyData, vertSpace, cols, highlightIDs, highlight, dehighlightOpacity, yearExtent*/ 446) {
+    				each_value_2 = /*year*/ ctx[20].divisions;
     				validate_each_argument(each_value_2);
     				let i;
 
@@ -2799,18 +3264,18 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(139:2) {#each huizhouHierarchyData as year}",
+    		source: "(155:2) {#each vizHierarchyData as year}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (188:2) {#each Object.keys(cols) as legendColor,i}
+    // (202:2) {#each Object.keys(cols) as legendColor,i}
     function create_each_block(ctx) {
     	let circle;
     	let text_1;
-    	let t_value = /*legendColor*/ ctx[13] + "";
+    	let t_value = /*legendColor*/ ctx[17] + "";
     	let t;
 
     	const block = {
@@ -2818,17 +3283,17 @@ var app = (function () {
     			circle = svg_element("circle");
     			text_1 = svg_element("text");
     			t = text(t_value);
-    			attr_dev(circle, "cx", 10 + /*i*/ ctx[15] * 140);
+    			attr_dev(circle, "cx", 10 + /*i*/ ctx[19] * 140);
     			attr_dev(circle, "cy", 300);
     			attr_dev(circle, "r", 6);
-    			attr_dev(circle, "fill", /*cols*/ ctx[7][/*legendColor*/ ctx[13]].fill);
-    			attr_dev(circle, "stroke", /*cols*/ ctx[7][/*legendColor*/ ctx[13]].stroke);
-    			add_location(circle, file, 188, 2, 5244);
-    			attr_dev(text_1, "x", 20 + /*i*/ ctx[15] * 140);
+    			attr_dev(circle, "fill", /*cols*/ ctx[8][/*legendColor*/ ctx[17]].fill);
+    			attr_dev(circle, "stroke", /*cols*/ ctx[8][/*legendColor*/ ctx[17]].stroke);
+    			add_location(circle, file, 202, 2, 5798);
+    			attr_dev(text_1, "x", 20 + /*i*/ ctx[19] * 140);
     			attr_dev(text_1, "y", 304);
     			attr_dev(text_1, "font-size", 12);
-    			attr_dev(text_1, "fill", /*cols*/ ctx[7][/*legendColor*/ ctx[13]].stroke);
-    			add_location(text_1, file, 189, 2, 5361);
+    			attr_dev(text_1, "fill", /*cols*/ ctx[8][/*legendColor*/ ctx[17]].stroke);
+    			add_location(text_1, file, 203, 2, 5915);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, circle, anchor);
@@ -2846,7 +3311,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(188:2) {#each Object.keys(cols) as legendColor,i}",
+    		source: "(202:2) {#each Object.keys(cols) as legendColor,i}",
     		ctx
     	});
 
@@ -2868,7 +3333,7 @@ var app = (function () {
     	let each2_anchor;
     	let mounted;
     	let dispose;
-    	let each_value_4 = /*lineData*/ ctx[5];
+    	let each_value_4 = /*lineData*/ ctx[6];
     	validate_each_argument(each_value_4);
     	let each_blocks_3 = [];
 
@@ -2876,7 +3341,7 @@ var app = (function () {
     		each_blocks_3[i] = create_each_block_4(get_each_context_4(ctx, each_value_4, i));
     	}
 
-    	let each_value_3 = /*splitData*/ ctx[9];
+    	let each_value_3 = /*splitData*/ ctx[10];
     	validate_each_argument(each_value_3);
     	let each_blocks_2 = [];
 
@@ -2884,7 +3349,7 @@ var app = (function () {
     		each_blocks_2[i] = create_each_block_3(get_each_context_3(ctx, each_value_3, i));
     	}
 
-    	let each_value_1 = /*huizhouHierarchyData*/ ctx[4];
+    	let each_value_1 = /*vizHierarchyData*/ ctx[5];
     	validate_each_argument(each_value_1);
     	let each_blocks_1 = [];
 
@@ -2892,7 +3357,7 @@ var app = (function () {
     		each_blocks_1[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
     	}
 
-    	let each_value = Object.keys(/*cols*/ ctx[7]);
+    	let each_value = Object.keys(/*cols*/ ctx[8]);
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
@@ -2935,14 +3400,14 @@ var app = (function () {
     			}
 
     			attr_dev(input0, "type", "checkbox");
-    			add_location(input0, file, 109, 2, 2979);
-    			add_location(label0, file, 108, 0, 2969);
+    			add_location(input0, file, 126, 2, 3540);
+    			add_location(label0, file, 125, 0, 3530);
     			attr_dev(input1, "type", "checkbox");
-    			add_location(input1, file, 114, 2, 3062);
-    			add_location(label1, file, 113, 0, 3052);
-    			attr_dev(svg, "width", 600);
-    			attr_dev(svg, "height", 600);
-    			add_location(svg, file, 117, 0, 3153);
+    			add_location(input1, file, 131, 2, 3623);
+    			add_location(label1, file, 130, 0, 3613);
+    			attr_dev(svg, "width", width);
+    			attr_dev(svg, "height", 400);
+    			add_location(svg, file, 134, 0, 3714);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2984,8 +3449,8 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(input0, "change", /*input0_change_handler*/ ctx[10]),
-    					listen_dev(input1, "change", /*input1_change_handler*/ ctx[11])
+    					listen_dev(input0, "change", /*input0_change_handler*/ ctx[11]),
+    					listen_dev(input1, "change", /*input1_change_handler*/ ctx[12])
     				];
 
     				mounted = true;
@@ -3000,8 +3465,8 @@ var app = (function () {
     				input1.checked = /*keepCentral*/ ctx[0];
     			}
 
-    			if (dirty & /*lineGenerator, lineData, highlight, highlightIDs, dehighlightOpacity*/ 294) {
-    				each_value_4 = /*lineData*/ ctx[5];
+    			if (dirty & /*lineGenerator, lineData, highlight, highlightIDs, dehighlightOpacity*/ 582) {
+    				each_value_4 = /*lineData*/ ctx[6];
     				validate_each_argument(each_value_4);
     				let i;
 
@@ -3024,8 +3489,8 @@ var app = (function () {
     				each_blocks_3.length = each_value_4.length;
     			}
 
-    			if (dirty & /*lineGenerator, splitData, highlight, dehighlightOpacity*/ 770) {
-    				each_value_3 = /*splitData*/ ctx[9];
+    			if (dirty & /*lineGenerator, splitData, highlight, dehighlightOpacity*/ 1538) {
+    				each_value_3 = /*splitData*/ ctx[10];
     				validate_each_argument(each_value_3);
     				let i;
 
@@ -3048,8 +3513,8 @@ var app = (function () {
     				each_blocks_2.length = each_value_3.length;
     			}
 
-    			if (dirty & /*huizhouHierarchyData, x, vertSpace, cols, highlightIDs, highlight, dehighlightOpacity*/ 222) {
-    				each_value_1 = /*huizhouHierarchyData*/ ctx[4];
+    			if (dirty & /*vizHierarchyData, x, vertSpace, cols, highlightIDs, highlight, dehighlightOpacity, yearExtent*/ 446) {
+    				each_value_1 = /*vizHierarchyData*/ ctx[5];
     				validate_each_argument(each_value_1);
     				let i;
 
@@ -3072,8 +3537,8 @@ var app = (function () {
     				each_blocks_1.length = each_value_1.length;
     			}
 
-    			if (dirty & /*cols, Object*/ 128) {
-    				each_value = Object.keys(/*cols*/ ctx[7]);
+    			if (dirty & /*cols, Object*/ 256) {
+    				each_value = Object.keys(/*cols*/ ctx[8]);
     				validate_each_argument(each_value);
     				let i;
 
@@ -3125,15 +3590,14 @@ var app = (function () {
     }
 
     const dehighlightOpacity = 0.2;
-    const width = 600;
+    const width = 800;
+    const height = 400;
 
     function getCoords(id, hierarchydata) {
     	let divisionCoords = hierarchydata.map(yr => {
     		let obj = {};
-
-    		//obj.year = yr.year;
+    		obj.year = yr.year;
     		obj.id = id;
-
     		let y;
 
     		if (typeof yr.divisions.find(d => d.data.data.divisionID === id) !== "undefined") {
@@ -3152,12 +3616,22 @@ var app = (function () {
     function instance($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('App', slots, []);
-    	let keepCentral = true;
+    	let keepCentral = false;
     	let highlight = false;
     	const highlightIDs = [1, 2, 3, 10, 14];
-    	let x = linear().domain([1977, 2004]).range([60, width - 50]);
+    	let vizData = huizhouData;
 
-    	let huizhouHierarchyData = huizhouData.map(d => {
+    	//let vizData = kunmingData;
+    	let yearExtent = extent(vizData, d => d.year);
+
+    	let yearDomain = [yearExtent[0] - 1, yearExtent[1] + 1];
+    	let pointYearDomain = vizData.map(d => d.year);
+    	let x = linear().domain(yearDomain).range([60, width - 120]);
+
+    	/*let x = scalePoint()
+      .domain(pointYearDomain)
+      .range([80, 250]);*/
+    	let vizHierarchyData = vizData.map(d => {
     		let obj = {};
     		obj.year = d.year;
     		obj.divisions = returnDivisions(d, keepCentral);
@@ -3196,14 +3670,15 @@ var app = (function () {
     		return divisions;
     	}
 
-    	const lineData = Array.from({ length: 16 }, (_, i) => i + 1).map(d => getCoords(d, huizhouHierarchyData));
+    	const lineData = Array.from({ length: 16 }, (_, i) => i + 1).map(d => getCoords(d, vizHierarchyData));
     	let vertSpace = 14;
 
     	let cols = {
     		County: { fill: "#6CDB8B", stroke: "#1D6F1C" },
     		countyLevelCity: { fill: "#fde0ef", stroke: "#d973a8" },
     		district: { fill: "#e9a3c9", stroke: "#bf3d81" },
-    		prefectureLevelCity: { fill: "#bf3d81", stroke: "#c51b7d" }
+    		prefectureLevelCity: { fill: "#bf3d81", stroke: "#c51b7d" },
+    		AutonomousCounty: { fill: "#a2c6eb", stroke: "#2d6196" }
     	};
 
     	const lineGenerator = line().x(d => x(d.values.year)).y(d => 20 + d.values.y * vertSpace).defined(d => d.values.y !== null).curve(bumpX);
@@ -3241,17 +3716,25 @@ var app = (function () {
 
     	$$self.$capture_state = () => ({
     		huizhouData,
+    		kunmingData,
     		hierarchy,
     		scaleLinear: linear,
+    		scalePoint: point,
     		line,
     		curveBumpX: bumpX,
+    		extent,
     		keepCentral,
     		highlight,
     		highlightIDs,
     		dehighlightOpacity,
+    		vizData,
+    		yearExtent,
+    		yearDomain,
+    		pointYearDomain,
     		width,
+    		height,
     		x,
-    		huizhouHierarchyData,
+    		vizHierarchyData,
     		returnDivisions,
     		getCoords,
     		lineData,
@@ -3264,10 +3747,14 @@ var app = (function () {
     	$$self.$inject_state = $$props => {
     		if ('keepCentral' in $$props) $$invalidate(0, keepCentral = $$props.keepCentral);
     		if ('highlight' in $$props) $$invalidate(1, highlight = $$props.highlight);
-    		if ('x' in $$props) $$invalidate(3, x = $$props.x);
-    		if ('huizhouHierarchyData' in $$props) $$invalidate(4, huizhouHierarchyData = $$props.huizhouHierarchyData);
-    		if ('vertSpace' in $$props) $$invalidate(6, vertSpace = $$props.vertSpace);
-    		if ('cols' in $$props) $$invalidate(7, cols = $$props.cols);
+    		if ('vizData' in $$props) vizData = $$props.vizData;
+    		if ('yearExtent' in $$props) $$invalidate(3, yearExtent = $$props.yearExtent);
+    		if ('yearDomain' in $$props) yearDomain = $$props.yearDomain;
+    		if ('pointYearDomain' in $$props) pointYearDomain = $$props.pointYearDomain;
+    		if ('x' in $$props) $$invalidate(4, x = $$props.x);
+    		if ('vizHierarchyData' in $$props) $$invalidate(5, vizHierarchyData = $$props.vizHierarchyData);
+    		if ('vertSpace' in $$props) $$invalidate(7, vertSpace = $$props.vertSpace);
+    		if ('cols' in $$props) $$invalidate(8, cols = $$props.cols);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -3278,8 +3765,9 @@ var app = (function () {
     		keepCentral,
     		highlight,
     		highlightIDs,
+    		yearExtent,
     		x,
-    		huizhouHierarchyData,
+    		vizHierarchyData,
     		lineData,
     		vertSpace,
     		cols,
