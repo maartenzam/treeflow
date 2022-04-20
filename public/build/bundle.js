@@ -4496,8 +4496,8 @@ var app = (function () {
     	let connectingLineColour = "#cccccc";
     	let countyColour = "#DA3B32";
     	let countyLevelCityColour = "#000000";
-    	let districtColour = "#2F4A90";
-    	let prefectureLevelCityColour = "#bf3d81";
+    	let districtColour = "#3463da";
+    	let prefectureLevelCityColour = "#dacc34";
     	let autonomousCountyColour = "#a2c6eb";
 
     	const divisionNames = {
