@@ -67,8 +67,14 @@ var app = (function () {
         else if (node.getAttribute(attribute) !== value)
             node.setAttribute(attribute, value);
     }
+    function to_number(value) {
+        return value === '' ? null : +value;
+    }
     function children(element) {
         return Array.from(element.childNodes);
+    }
+    function set_input_value(input, value) {
+        input.value = value == null ? '' : value;
     }
     function custom_event(type, detail, bubbles = false) {
         const e = document.createEvent('CustomEvent');
@@ -336,6 +342,13 @@ var app = (function () {
         else
             dispatch_dev('SvelteDOMSetAttribute', { node, attribute, value });
     }
+    function set_data_dev(text, data) {
+        data = '' + data;
+        if (text.wholeText === data)
+            return;
+        dispatch_dev('SvelteDOMSetData', { node: text, data });
+        text.data = data;
+    }
     function validate_each_argument(arg) {
         if (typeof arg !== 'string' && !(arg && typeof arg === 'object' && 'length' in arg)) {
             let msg = '{#each} only iterates over array-like objects.';
@@ -602,7 +615,7 @@ var app = (function () {
               status: "Prefecture-level city",
               children: [
                 { divisionID: 15, name: "Yuancheng", status: "district" },
-                { divisionID: 16, name: "Jiao", status: "district" },
+                { divisionID: 16, name: "Dongyuan", status: "district" },
               ],
             },
             {
@@ -659,7 +672,7 @@ var app = (function () {
               status: "Prefecture-level city",
               children: [
                 { divisionID: 15, name: "Yuancheng", status: "district" },
-                { divisionID: 16, name: "Jiao", status: "district" },
+                { divisionID: 16, name: "Dongyuan", status: "district" },
               ],
             },
             {
@@ -2906,66 +2919,288 @@ var app = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[17] = list[i];
-    	child_ctx[19] = i;
+    	child_ctx[48] = list[i];
+    	child_ctx[50] = i;
     	return child_ctx;
     }
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[20] = list[i];
+    	child_ctx[51] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_2(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[23] = list[i];
+    	child_ctx[54] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_3(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[26] = list[i];
+    	child_ctx[57] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_4(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[26] = list[i];
+    	child_ctx[57] = list[i];
     	return child_ctx;
     }
 
-    // (136:2) {#each lineData as line}
-    function create_each_block_4(ctx) {
+    function get_each_context_5(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[62] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_6(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[62] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_7(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[62] = list[i];
+    	return child_ctx;
+    }
+
+    // (242:2) {#each lineData as line}
+    function create_each_block_7(ctx) {
+    	let path0;
+    	let path0_d_value;
+    	let path0_opacity_value;
+    	let path1;
+    	let path1_d_value;
+    	let path1_opacity_value;
+
+    	const block = {
+    		c: function create() {
+    			path0 = svg_element("path");
+    			path1 = svg_element("path");
+    			attr_dev(path0, "d", path0_d_value = /*lineGenerator*/ ctx[14](/*line*/ ctx[62]));
+    			attr_dev(path0, "fill", "none");
+    			attr_dev(path0, "stroke", "#eeeeee");
+
+    			attr_dev(path0, "opacity", path0_opacity_value = !/*highlight*/ ctx[8] && /*highlightIDs*/ ctx[16].includes(/*line*/ ctx[62].id)
+    			? dehighlightOpacity
+    			: 1);
+
+    			attr_dev(path0, "stroke-width", /*backgroundLineStrokeWidth*/ ctx[10]);
+    			add_location(path0, file, 242, 4, 7839);
+    			attr_dev(path1, "d", path1_d_value = /*lineGenerator*/ ctx[14](/*line*/ ctx[62]));
+    			attr_dev(path1, "fill", "none");
+    			attr_dev(path1, "stroke", /*connectingLineColour*/ ctx[13]);
+
+    			attr_dev(path1, "opacity", path1_opacity_value = !/*highlight*/ ctx[8] && /*highlightIDs*/ ctx[16].includes(/*line*/ ctx[62].id)
+    			? dehighlightOpacity
+    			: 1);
+
+    			attr_dev(path1, "stroke-width", /*lineStrokeWidth*/ ctx[9]);
+    			add_location(path1, file, 251, 4, 8080);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, path0, anchor);
+    			insert_dev(target, path1, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*lineGenerator*/ 16384 && path0_d_value !== (path0_d_value = /*lineGenerator*/ ctx[14](/*line*/ ctx[62]))) {
+    				attr_dev(path0, "d", path0_d_value);
+    			}
+
+    			if (dirty[0] & /*highlight*/ 256 && path0_opacity_value !== (path0_opacity_value = !/*highlight*/ ctx[8] && /*highlightIDs*/ ctx[16].includes(/*line*/ ctx[62].id)
+    			? dehighlightOpacity
+    			: 1)) {
+    				attr_dev(path0, "opacity", path0_opacity_value);
+    			}
+
+    			if (dirty[0] & /*backgroundLineStrokeWidth*/ 1024) {
+    				attr_dev(path0, "stroke-width", /*backgroundLineStrokeWidth*/ ctx[10]);
+    			}
+
+    			if (dirty[0] & /*lineGenerator*/ 16384 && path1_d_value !== (path1_d_value = /*lineGenerator*/ ctx[14](/*line*/ ctx[62]))) {
+    				attr_dev(path1, "d", path1_d_value);
+    			}
+
+    			if (dirty[0] & /*connectingLineColour*/ 8192) {
+    				attr_dev(path1, "stroke", /*connectingLineColour*/ ctx[13]);
+    			}
+
+    			if (dirty[0] & /*highlight*/ 256 && path1_opacity_value !== (path1_opacity_value = !/*highlight*/ ctx[8] && /*highlightIDs*/ ctx[16].includes(/*line*/ ctx[62].id)
+    			? dehighlightOpacity
+    			: 1)) {
+    				attr_dev(path1, "opacity", path1_opacity_value);
+    			}
+
+    			if (dirty[0] & /*lineStrokeWidth*/ 512) {
+    				attr_dev(path1, "stroke-width", /*lineStrokeWidth*/ ctx[9]);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(path0);
+    			if (detaching) detach_dev(path1);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_7.name,
+    		type: "each",
+    		source: "(242:2) {#each lineData as line}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (262:2) {#each splitData as line}
+    function create_each_block_6(ctx) {
     	let path;
+    	let path_d_value;
     	let path_opacity_value;
 
     	const block = {
     		c: function create() {
     			path = svg_element("path");
-    			attr_dev(path, "d", /*lineGenerator*/ ctx[9](/*line*/ ctx[26]));
+    			attr_dev(path, "d", path_d_value = /*lineGenerator*/ ctx[14](/*line*/ ctx[62]));
     			attr_dev(path, "fill", "none");
     			attr_dev(path, "stroke", "#eeeeee");
-
-    			attr_dev(path, "opacity", path_opacity_value = !/*highlight*/ ctx[1] && /*highlightIDs*/ ctx[2].includes(/*line*/ ctx[26].id)
-    			? dehighlightOpacity
-    			: 1);
-
-    			attr_dev(path, "stroke-width", 6);
-    			add_location(path, file, 136, 4, 3778);
+    			attr_dev(path, "opacity", path_opacity_value = !/*highlight*/ ctx[8] ? 1 : dehighlightOpacity);
+    			attr_dev(path, "stroke-width", /*backgroundLineStrokeWidth*/ ctx[10]);
+    			add_location(path, file, 262, 4, 8360);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, path, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*highlight*/ 2 && path_opacity_value !== (path_opacity_value = !/*highlight*/ ctx[1] && /*highlightIDs*/ ctx[2].includes(/*line*/ ctx[26].id)
-    			? dehighlightOpacity
-    			: 1)) {
+    			if (dirty[0] & /*lineGenerator*/ 16384 && path_d_value !== (path_d_value = /*lineGenerator*/ ctx[14](/*line*/ ctx[62]))) {
+    				attr_dev(path, "d", path_d_value);
+    			}
+
+    			if (dirty[0] & /*highlight*/ 256 && path_opacity_value !== (path_opacity_value = !/*highlight*/ ctx[8] ? 1 : dehighlightOpacity)) {
     				attr_dev(path, "opacity", path_opacity_value);
+    			}
+
+    			if (dirty[0] & /*backgroundLineStrokeWidth*/ 1024) {
+    				attr_dev(path, "stroke-width", /*backgroundLineStrokeWidth*/ ctx[10]);
     			}
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(path);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_6.name,
+    		type: "each",
+    		source: "(262:2) {#each splitData as line}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (271:2) {#each splitData as line}
+    function create_each_block_5(ctx) {
+    	let path;
+    	let path_d_value;
+    	let path_opacity_value;
+
+    	const block = {
+    		c: function create() {
+    			path = svg_element("path");
+    			attr_dev(path, "d", path_d_value = /*lineGenerator*/ ctx[14](/*line*/ ctx[62]));
+    			attr_dev(path, "fill", "none");
+    			attr_dev(path, "stroke", /*connectingLineColour*/ ctx[13]);
+    			attr_dev(path, "opacity", path_opacity_value = !/*highlight*/ ctx[8] ? 1 : dehighlightOpacity);
+    			attr_dev(path, "stroke-width", /*lineStrokeWidth*/ ctx[9]);
+    			add_location(path, file, 271, 4, 8589);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, path, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*lineGenerator*/ 16384 && path_d_value !== (path_d_value = /*lineGenerator*/ ctx[14](/*line*/ ctx[62]))) {
+    				attr_dev(path, "d", path_d_value);
+    			}
+
+    			if (dirty[0] & /*connectingLineColour*/ 8192) {
+    				attr_dev(path, "stroke", /*connectingLineColour*/ ctx[13]);
+    			}
+
+    			if (dirty[0] & /*highlight*/ 256 && path_opacity_value !== (path_opacity_value = !/*highlight*/ ctx[8] ? 1 : dehighlightOpacity)) {
+    				attr_dev(path, "opacity", path_opacity_value);
+    			}
+
+    			if (dirty[0] & /*lineStrokeWidth*/ 512) {
+    				attr_dev(path, "stroke-width", /*lineStrokeWidth*/ ctx[9]);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(path);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_5.name,
+    		type: "each",
+    		source: "(271:2) {#each splitData as line}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (286:4) {#each year.divisions as division}
+    function create_each_block_4(ctx) {
+    	let circle;
+    	let circle_cx_value;
+    	let circle_cy_value;
+    	let circle_opacity_value;
+
+    	const block = {
+    		c: function create() {
+    			circle = svg_element("circle");
+    			attr_dev(circle, "cx", circle_cx_value = /*x*/ ctx[7](/*year*/ ctx[54].year));
+    			attr_dev(circle, "cy", circle_cy_value = 20 + /*division*/ ctx[57].y * /*vertSpace*/ ctx[6]);
+    			attr_dev(circle, "r", /*outerCircleRadius*/ ctx[11]);
+    			attr_dev(circle, "fill", "#000000");
+    			attr_dev(circle, "stroke", "#000000");
+    			attr_dev(circle, "stroke-width", 1);
+
+    			attr_dev(circle, "opacity", circle_opacity_value = /*highlightIDs*/ ctx[16].includes(/*division*/ ctx[57].data.data.divisionID)
+    			? 1
+    			: /*highlight*/ ctx[8] ? dehighlightOpacity : 1);
+
+    			add_location(circle, file, 286, 6, 9063);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, circle, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*x*/ 128 && circle_cx_value !== (circle_cx_value = /*x*/ ctx[7](/*year*/ ctx[54].year))) {
+    				attr_dev(circle, "cx", circle_cx_value);
+    			}
+
+    			if (dirty[0] & /*vertSpace*/ 64 && circle_cy_value !== (circle_cy_value = 20 + /*division*/ ctx[57].y * /*vertSpace*/ ctx[6])) {
+    				attr_dev(circle, "cy", circle_cy_value);
+    			}
+
+    			if (dirty[0] & /*outerCircleRadius*/ 2048) {
+    				attr_dev(circle, "r", /*outerCircleRadius*/ ctx[11]);
+    			}
+
+    			if (dirty[0] & /*highlight*/ 256 && circle_opacity_value !== (circle_opacity_value = /*highlightIDs*/ ctx[16].includes(/*division*/ ctx[57].data.data.divisionID)
+    			? 1
+    			: /*highlight*/ ctx[8] ? dehighlightOpacity : 1)) {
+    				attr_dev(circle, "opacity", circle_opacity_value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(circle);
     		}
     	};
 
@@ -2973,83 +3208,59 @@ var app = (function () {
     		block,
     		id: create_each_block_4.name,
     		type: "each",
-    		source: "(136:2) {#each lineData as line}",
+    		source: "(286:4) {#each year.divisions as division}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (147:2) {#each splitData as line}
-    function create_each_block_3(ctx) {
-    	let path;
-    	let path_opacity_value;
-
-    	const block = {
-    		c: function create() {
-    			path = svg_element("path");
-    			attr_dev(path, "d", /*lineGenerator*/ ctx[9](/*line*/ ctx[26]));
-    			attr_dev(path, "fill", "none");
-    			attr_dev(path, "stroke", "#eeeeee");
-    			attr_dev(path, "opacity", path_opacity_value = !/*highlight*/ ctx[1] ? 1 : dehighlightOpacity);
-    			attr_dev(path, "stroke-width", 6);
-    			add_location(path, file, 147, 4, 4033);
-    		},
-    		m: function mount(target, anchor) {
-    			insert_dev(target, path, anchor);
-    		},
-    		p: function update(ctx, dirty) {
-    			if (dirty & /*highlight*/ 2 && path_opacity_value !== (path_opacity_value = !/*highlight*/ ctx[1] ? 1 : dehighlightOpacity)) {
-    				attr_dev(path, "opacity", path_opacity_value);
-    			}
-    		},
-    		d: function destroy(detaching) {
-    			if (detaching) detach_dev(path);
-    		}
-    	};
-
-    	dispatch_dev("SvelteRegisterBlock", {
-    		block,
-    		id: create_each_block_3.name,
-    		type: "each",
-    		source: "(147:2) {#each splitData as line}",
-    		ctx
-    	});
-
-    	return block;
-    }
-
-    // (175:6) {#if year.year === yearExtent[0]}
+    // (315:6) {#if year.year === yearExtent[0]}
     function create_if_block_1(ctx) {
     	let text_1;
-    	let t_value = /*division*/ ctx[23].data.data.name + "";
+    	let t_value = /*division*/ ctx[57].data.data.name + "";
     	let t;
+    	let text_1_x_value;
+    	let text_1_y_value;
+    	let text_1_fill_value;
     	let text_1_opacity_value;
 
     	const block = {
     		c: function create() {
     			text_1 = svg_element("text");
     			t = text(t_value);
-    			attr_dev(text_1, "x", /*x*/ ctx[4](/*year*/ ctx[20].year) - 12);
-    			attr_dev(text_1, "y", 20 + /*division*/ ctx[23].y * /*vertSpace*/ ctx[7] + 4);
+    			attr_dev(text_1, "x", text_1_x_value = /*x*/ ctx[7](/*year*/ ctx[54].year) - 12);
+    			attr_dev(text_1, "y", text_1_y_value = 20 + /*division*/ ctx[57].y * /*vertSpace*/ ctx[6] + 4);
     			attr_dev(text_1, "font-size", 11);
     			attr_dev(text_1, "text-anchor", "end");
-    			attr_dev(text_1, "fill", /*cols*/ ctx[8][/*division*/ ctx[23].data.data.status].stroke);
+    			attr_dev(text_1, "fill", text_1_fill_value = /*cols*/ ctx[15][/*division*/ ctx[57].data.data.status].fill);
 
-    			attr_dev(text_1, "opacity", text_1_opacity_value = /*highlightIDs*/ ctx[2].includes(/*division*/ ctx[23].data.data.divisionID)
+    			attr_dev(text_1, "opacity", text_1_opacity_value = /*highlightIDs*/ ctx[16].includes(/*division*/ ctx[57].data.data.divisionID)
     			? 1
-    			: /*highlight*/ ctx[1] ? dehighlightOpacity : 1);
+    			: /*highlight*/ ctx[8] ? dehighlightOpacity : 1);
 
-    			add_location(text_1, file, 175, 8, 4908);
+    			add_location(text_1, file, 315, 8, 9910);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, text_1, anchor);
     			append_dev(text_1, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*highlight*/ 2 && text_1_opacity_value !== (text_1_opacity_value = /*highlightIDs*/ ctx[2].includes(/*division*/ ctx[23].data.data.divisionID)
+    			if (dirty[0] & /*x*/ 128 && text_1_x_value !== (text_1_x_value = /*x*/ ctx[7](/*year*/ ctx[54].year) - 12)) {
+    				attr_dev(text_1, "x", text_1_x_value);
+    			}
+
+    			if (dirty[0] & /*vertSpace*/ 64 && text_1_y_value !== (text_1_y_value = 20 + /*division*/ ctx[57].y * /*vertSpace*/ ctx[6] + 4)) {
+    				attr_dev(text_1, "y", text_1_y_value);
+    			}
+
+    			if (dirty[0] & /*cols*/ 32768 && text_1_fill_value !== (text_1_fill_value = /*cols*/ ctx[15][/*division*/ ctx[57].data.data.status].fill)) {
+    				attr_dev(text_1, "fill", text_1_fill_value);
+    			}
+
+    			if (dirty[0] & /*highlight*/ 256 && text_1_opacity_value !== (text_1_opacity_value = /*highlightIDs*/ ctx[16].includes(/*division*/ ctx[57].data.data.divisionID)
     			? 1
-    			: /*highlight*/ ctx[1] ? dehighlightOpacity : 1)) {
+    			: /*highlight*/ ctx[8] ? dehighlightOpacity : 1)) {
     				attr_dev(text_1, "opacity", text_1_opacity_value);
     			}
     		},
@@ -3062,43 +3273,58 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(175:6) {#if year.year === yearExtent[0]}",
+    		source: "(315:6) {#if year.year === yearExtent[0]}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (188:6) {#if year.year === yearExtent[1]}
+    // (329:6) {#if year.year === yearExtent[1]}
     function create_if_block(ctx) {
     	let text_1;
-    	let t_value = /*division*/ ctx[23].data.data.name + "";
+    	let t_value = /*divisionNames*/ ctx[17][/*division*/ ctx[57].data.data.name] + "";
     	let t;
+    	let text_1_x_value;
+    	let text_1_y_value;
+    	let text_1_fill_value;
     	let text_1_opacity_value;
 
     	const block = {
     		c: function create() {
     			text_1 = svg_element("text");
     			t = text(t_value);
-    			attr_dev(text_1, "x", /*x*/ ctx[4](/*year*/ ctx[20].year) + 8);
-    			attr_dev(text_1, "y", 20 + /*division*/ ctx[23].y * /*vertSpace*/ ctx[7] + 4);
+    			attr_dev(text_1, "x", text_1_x_value = /*x*/ ctx[7](/*year*/ ctx[54].year) + 12);
+    			attr_dev(text_1, "y", text_1_y_value = 20 + /*division*/ ctx[57].y * /*vertSpace*/ ctx[6] + 4);
     			attr_dev(text_1, "font-size", 11);
-    			attr_dev(text_1, "fill", /*cols*/ ctx[8][/*division*/ ctx[23].data.data.status].stroke);
+    			attr_dev(text_1, "fill", text_1_fill_value = /*cols*/ ctx[15][/*division*/ ctx[57].data.data.status].fill);
 
-    			attr_dev(text_1, "opacity", text_1_opacity_value = /*highlightIDs*/ ctx[2].includes(/*division*/ ctx[23].data.data.divisionID)
+    			attr_dev(text_1, "opacity", text_1_opacity_value = /*highlightIDs*/ ctx[16].includes(/*division*/ ctx[57].data.data.divisionID)
     			? 1
-    			: /*highlight*/ ctx[1] ? dehighlightOpacity : 1);
+    			: /*highlight*/ ctx[8] ? dehighlightOpacity : 1);
 
-    			add_location(text_1, file, 188, 8, 5358);
+    			add_location(text_1, file, 329, 8, 10367);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, text_1, anchor);
     			append_dev(text_1, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*highlight*/ 2 && text_1_opacity_value !== (text_1_opacity_value = /*highlightIDs*/ ctx[2].includes(/*division*/ ctx[23].data.data.divisionID)
+    			if (dirty[0] & /*x*/ 128 && text_1_x_value !== (text_1_x_value = /*x*/ ctx[7](/*year*/ ctx[54].year) + 12)) {
+    				attr_dev(text_1, "x", text_1_x_value);
+    			}
+
+    			if (dirty[0] & /*vertSpace*/ 64 && text_1_y_value !== (text_1_y_value = 20 + /*division*/ ctx[57].y * /*vertSpace*/ ctx[6] + 4)) {
+    				attr_dev(text_1, "y", text_1_y_value);
+    			}
+
+    			if (dirty[0] & /*cols*/ 32768 && text_1_fill_value !== (text_1_fill_value = /*cols*/ ctx[15][/*division*/ ctx[57].data.data.status].fill)) {
+    				attr_dev(text_1, "fill", text_1_fill_value);
+    			}
+
+    			if (dirty[0] & /*highlight*/ 256 && text_1_opacity_value !== (text_1_opacity_value = /*highlightIDs*/ ctx[16].includes(/*division*/ ctx[57].data.data.divisionID)
     			? 1
-    			: /*highlight*/ ctx[1] ? dehighlightOpacity : 1)) {
+    			: /*highlight*/ ctx[8] ? dehighlightOpacity : 1)) {
     				attr_dev(text_1, "opacity", text_1_opacity_value);
     			}
     		},
@@ -3111,21 +3337,25 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(188:6) {#if year.year === yearExtent[1]}",
+    		source: "(329:6) {#if year.year === yearExtent[1]}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (161:4) {#each year.divisions as division}
-    function create_each_block_2(ctx) {
+    // (301:4) {#each year.divisions as division}
+    function create_each_block_3(ctx) {
     	let circle;
+    	let circle_cx_value;
+    	let circle_cy_value;
+    	let circle_fill_value;
+    	let circle_stroke_value;
     	let circle_opacity_value;
     	let if_block0_anchor;
     	let if_block1_anchor;
-    	let if_block0 = /*year*/ ctx[20].year === /*yearExtent*/ ctx[3][0] && create_if_block_1(ctx);
-    	let if_block1 = /*year*/ ctx[20].year === /*yearExtent*/ ctx[3][1] && create_if_block(ctx);
+    	let if_block0 = /*year*/ ctx[54].year === /*yearExtent*/ ctx[18][0] && create_if_block_1(ctx);
+    	let if_block1 = /*year*/ ctx[54].year === /*yearExtent*/ ctx[18][1] && create_if_block(ctx);
 
     	const block = {
     		c: function create() {
@@ -3134,18 +3364,18 @@ var app = (function () {
     			if_block0_anchor = empty();
     			if (if_block1) if_block1.c();
     			if_block1_anchor = empty();
-    			attr_dev(circle, "cx", /*x*/ ctx[4](/*year*/ ctx[20].year));
-    			attr_dev(circle, "cy", 20 + /*division*/ ctx[23].y * /*vertSpace*/ ctx[7]);
-    			attr_dev(circle, "r", 6);
-    			attr_dev(circle, "fill", /*cols*/ ctx[8][/*division*/ ctx[23].data.data.status].fill);
-    			attr_dev(circle, "stroke", /*cols*/ ctx[8][/*division*/ ctx[23].data.data.status].stroke);
+    			attr_dev(circle, "cx", circle_cx_value = /*x*/ ctx[7](/*year*/ ctx[54].year));
+    			attr_dev(circle, "cy", circle_cy_value = 20 + /*division*/ ctx[57].y * /*vertSpace*/ ctx[6]);
+    			attr_dev(circle, "r", /*innerCircleRadius*/ ctx[12]);
+    			attr_dev(circle, "fill", circle_fill_value = /*cols*/ ctx[15][/*division*/ ctx[57].data.data.status].fill);
+    			attr_dev(circle, "stroke", circle_stroke_value = /*cols*/ ctx[15][/*division*/ ctx[57].data.data.status].stroke);
     			attr_dev(circle, "stroke-width", 1);
 
-    			attr_dev(circle, "opacity", circle_opacity_value = /*highlightIDs*/ ctx[2].includes(/*division*/ ctx[23].data.data.divisionID)
+    			attr_dev(circle, "opacity", circle_opacity_value = /*highlightIDs*/ ctx[16].includes(/*division*/ ctx[57].data.data.divisionID)
     			? 1
-    			: /*highlight*/ ctx[1] ? dehighlightOpacity : 1);
+    			: /*highlight*/ ctx[8] ? dehighlightOpacity : 1);
 
-    			add_location(circle, file, 161, 6, 4477);
+    			add_location(circle, file, 301, 6, 9463);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, circle, anchor);
@@ -3155,14 +3385,34 @@ var app = (function () {
     			insert_dev(target, if_block1_anchor, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*highlight*/ 2 && circle_opacity_value !== (circle_opacity_value = /*highlightIDs*/ ctx[2].includes(/*division*/ ctx[23].data.data.divisionID)
+    			if (dirty[0] & /*x*/ 128 && circle_cx_value !== (circle_cx_value = /*x*/ ctx[7](/*year*/ ctx[54].year))) {
+    				attr_dev(circle, "cx", circle_cx_value);
+    			}
+
+    			if (dirty[0] & /*vertSpace*/ 64 && circle_cy_value !== (circle_cy_value = 20 + /*division*/ ctx[57].y * /*vertSpace*/ ctx[6])) {
+    				attr_dev(circle, "cy", circle_cy_value);
+    			}
+
+    			if (dirty[0] & /*innerCircleRadius*/ 4096) {
+    				attr_dev(circle, "r", /*innerCircleRadius*/ ctx[12]);
+    			}
+
+    			if (dirty[0] & /*cols*/ 32768 && circle_fill_value !== (circle_fill_value = /*cols*/ ctx[15][/*division*/ ctx[57].data.data.status].fill)) {
+    				attr_dev(circle, "fill", circle_fill_value);
+    			}
+
+    			if (dirty[0] & /*cols*/ 32768 && circle_stroke_value !== (circle_stroke_value = /*cols*/ ctx[15][/*division*/ ctx[57].data.data.status].stroke)) {
+    				attr_dev(circle, "stroke", circle_stroke_value);
+    			}
+
+    			if (dirty[0] & /*highlight*/ 256 && circle_opacity_value !== (circle_opacity_value = /*highlightIDs*/ ctx[16].includes(/*division*/ ctx[57].data.data.divisionID)
     			? 1
-    			: /*highlight*/ ctx[1] ? dehighlightOpacity : 1)) {
+    			: /*highlight*/ ctx[8] ? dehighlightOpacity : 1)) {
     				attr_dev(circle, "opacity", circle_opacity_value);
     			}
 
-    			if (/*year*/ ctx[20].year === /*yearExtent*/ ctx[3][0]) if_block0.p(ctx, dirty);
-    			if (/*year*/ ctx[20].year === /*yearExtent*/ ctx[3][1]) if_block1.p(ctx, dirty);
+    			if (/*year*/ ctx[54].year === /*yearExtent*/ ctx[18][0]) if_block0.p(ctx, dirty);
+    			if (/*year*/ ctx[54].year === /*yearExtent*/ ctx[18][1]) if_block1.p(ctx, dirty);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(circle);
@@ -3175,31 +3425,41 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_each_block_2.name,
+    		id: create_each_block_3.name,
     		type: "each",
-    		source: "(161:4) {#each year.divisions as division}",
+    		source: "(301:4) {#each year.divisions as division}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (155:2) {#each vizHierarchyData as year}
-    function create_each_block_1(ctx) {
+    // (280:2) {#each vizHierarchyData as year}
+    function create_each_block_2(ctx) {
     	let text_1;
 
-    	let t_value = (/*year*/ ctx[20].year === 1978 || /*year*/ ctx[20].year === 1979
-    	? /*year*/ ctx[20].year.toString().substring(2)
-    	: /*year*/ ctx[20].year) + "";
+    	let t_value = (/*year*/ ctx[54].year === 1978 || /*year*/ ctx[54].year === 1979
+    	? /*year*/ ctx[54].year.toString().substring(2)
+    	: /*year*/ ctx[54].year) + "";
 
     	let t;
-    	let each_1_anchor;
-    	let each_value_2 = /*year*/ ctx[20].divisions;
-    	validate_each_argument(each_value_2);
+    	let text_1_x_value;
+    	let each0_anchor;
+    	let each1_anchor;
+    	let each_value_4 = /*year*/ ctx[54].divisions;
+    	validate_each_argument(each_value_4);
+    	let each_blocks_1 = [];
+
+    	for (let i = 0; i < each_value_4.length; i += 1) {
+    		each_blocks_1[i] = create_each_block_4(get_each_context_4(ctx, each_value_4, i));
+    	}
+
+    	let each_value_3 = /*year*/ ctx[54].divisions;
+    	validate_each_argument(each_value_3);
     	let each_blocks = [];
 
-    	for (let i = 0; i < each_value_2.length; i += 1) {
-    		each_blocks[i] = create_each_block_2(get_each_context_2(ctx, each_value_2, i));
+    	for (let i = 0; i < each_value_3.length; i += 1) {
+    		each_blocks[i] = create_each_block_3(get_each_context_3(ctx, each_value_3, i));
     	}
 
     	const block = {
@@ -3207,42 +3467,82 @@ var app = (function () {
     			text_1 = svg_element("text");
     			t = text(t_value);
 
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].c();
+    			}
+
+    			each0_anchor = empty();
+
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
 
-    			each_1_anchor = empty();
-    			attr_dev(text_1, "x", /*x*/ ctx[4](/*year*/ ctx[20].year));
+    			each1_anchor = empty();
+    			attr_dev(text_1, "x", text_1_x_value = /*x*/ ctx[7](/*year*/ ctx[54].year));
     			attr_dev(text_1, "y", 10);
     			attr_dev(text_1, "text-anchor", "middle");
     			attr_dev(text_1, "font-size", 10);
-    			add_location(text_1, file, 155, 4, 4240);
+    			add_location(text_1, file, 280, 4, 8826);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, text_1, anchor);
     			append_dev(text_1, t);
 
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].m(target, anchor);
+    			}
+
+    			insert_dev(target, each0_anchor, anchor);
+
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].m(target, anchor);
     			}
 
-    			insert_dev(target, each_1_anchor, anchor);
+    			insert_dev(target, each1_anchor, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*x, vizHierarchyData, vertSpace, cols, highlightIDs, highlight, dehighlightOpacity, yearExtent*/ 446) {
-    				each_value_2 = /*year*/ ctx[20].divisions;
-    				validate_each_argument(each_value_2);
+    			if (dirty[0] & /*x*/ 128 && text_1_x_value !== (text_1_x_value = /*x*/ ctx[7](/*year*/ ctx[54].year))) {
+    				attr_dev(text_1, "x", text_1_x_value);
+    			}
+
+    			if (dirty[0] & /*x, vizHierarchyData, vertSpace, outerCircleRadius, highlightIDs, highlight*/ 592320) {
+    				each_value_4 = /*year*/ ctx[54].divisions;
+    				validate_each_argument(each_value_4);
     				let i;
 
-    				for (i = 0; i < each_value_2.length; i += 1) {
-    					const child_ctx = get_each_context_2(ctx, each_value_2, i);
+    				for (i = 0; i < each_value_4.length; i += 1) {
+    					const child_ctx = get_each_context_4(ctx, each_value_4, i);
+
+    					if (each_blocks_1[i]) {
+    						each_blocks_1[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks_1[i] = create_each_block_4(child_ctx);
+    						each_blocks_1[i].c();
+    						each_blocks_1[i].m(each0_anchor.parentNode, each0_anchor);
+    					}
+    				}
+
+    				for (; i < each_blocks_1.length; i += 1) {
+    					each_blocks_1[i].d(1);
+    				}
+
+    				each_blocks_1.length = each_value_4.length;
+    			}
+
+    			if (dirty[0] & /*x, vizHierarchyData, vertSpace, cols, highlightIDs, highlight, divisionNames, yearExtent, innerCircleRadius*/ 1020352) {
+    				each_value_3 = /*year*/ ctx[54].divisions;
+    				validate_each_argument(each_value_3);
+    				let i;
+
+    				for (i = 0; i < each_value_3.length; i += 1) {
+    					const child_ctx = get_each_context_3(ctx, each_value_3, i);
 
     					if (each_blocks[i]) {
     						each_blocks[i].p(child_ctx, dirty);
     					} else {
-    						each_blocks[i] = create_each_block_2(child_ctx);
+    						each_blocks[i] = create_each_block_3(child_ctx);
     						each_blocks[i].c();
-    						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
+    						each_blocks[i].m(each1_anchor.parentNode, each1_anchor);
     					}
     				}
 
@@ -3250,13 +3550,75 @@ var app = (function () {
     					each_blocks[i].d(1);
     				}
 
-    				each_blocks.length = each_value_2.length;
+    				each_blocks.length = each_value_3.length;
     			}
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(text_1);
+    			destroy_each(each_blocks_1, detaching);
+    			if (detaching) detach_dev(each0_anchor);
     			destroy_each(each_blocks, detaching);
-    			if (detaching) detach_dev(each_1_anchor);
+    			if (detaching) detach_dev(each1_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_2.name,
+    		type: "each",
+    		source: "(280:2) {#each vizHierarchyData as year}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (344:2) {#each boundaryChanges as change}
+    function create_each_block_1(ctx) {
+    	let circle;
+    	let circle_cx_value;
+    	let circle_cy_value;
+    	let circle_fill_value;
+
+    	const block = {
+    		c: function create() {
+    			circle = svg_element("circle");
+    			attr_dev(circle, "cx", circle_cx_value = /*x*/ ctx[7](/*change*/ ctx[51].year) + 4);
+    			attr_dev(circle, "cy", circle_cy_value = 20 + /*change*/ ctx[51].y * /*vertSpace*/ ctx[6] - 4);
+    			attr_dev(circle, "r", 3);
+
+    			attr_dev(circle, "stroke", /*change*/ ctx[51].status === "district"
+    			? "white"
+    			: "white");
+
+    			attr_dev(circle, "stroke-width", 1);
+
+    			attr_dev(circle, "fill", circle_fill_value = /*change*/ ctx[51].status === "district"
+    			? /*districtColour*/ ctx[3]
+    			: "white");
+
+    			add_location(circle, file, 344, 4, 10823);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, circle, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*x*/ 128 && circle_cx_value !== (circle_cx_value = /*x*/ ctx[7](/*change*/ ctx[51].year) + 4)) {
+    				attr_dev(circle, "cx", circle_cx_value);
+    			}
+
+    			if (dirty[0] & /*vertSpace*/ 64 && circle_cy_value !== (circle_cy_value = 20 + /*change*/ ctx[51].y * /*vertSpace*/ ctx[6] - 4)) {
+    				attr_dev(circle, "cy", circle_cy_value);
+    			}
+
+    			if (dirty[0] & /*districtColour*/ 8 && circle_fill_value !== (circle_fill_value = /*change*/ ctx[51].status === "district"
+    			? /*districtColour*/ ctx[3]
+    			: "white")) {
+    				attr_dev(circle, "fill", circle_fill_value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(circle);
     		}
     	};
 
@@ -3264,43 +3626,60 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(155:2) {#each vizHierarchyData as year}",
+    		source: "(344:2) {#each boundaryChanges as change}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (202:2) {#each Object.keys(cols) as legendColor,i}
+    // (354:2) {#each Object.keys(cols) as legendColor, i}
     function create_each_block(ctx) {
     	let circle;
+    	let circle_fill_value;
+    	let circle_stroke_value;
     	let text_1;
-    	let t_value = /*legendColor*/ ctx[17] + "";
+    	let t_value = /*legendColor*/ ctx[48] + "";
     	let t;
+    	let text_1_fill_value;
 
     	const block = {
     		c: function create() {
     			circle = svg_element("circle");
     			text_1 = svg_element("text");
     			t = text(t_value);
-    			attr_dev(circle, "cx", 10 + /*i*/ ctx[19] * 140);
+    			attr_dev(circle, "cx", 10 + /*i*/ ctx[50] * 140);
     			attr_dev(circle, "cy", 300);
     			attr_dev(circle, "r", 6);
-    			attr_dev(circle, "fill", /*cols*/ ctx[8][/*legendColor*/ ctx[17]].fill);
-    			attr_dev(circle, "stroke", /*cols*/ ctx[8][/*legendColor*/ ctx[17]].stroke);
-    			add_location(circle, file, 202, 2, 5798);
-    			attr_dev(text_1, "x", 20 + /*i*/ ctx[19] * 140);
+    			attr_dev(circle, "fill", circle_fill_value = /*cols*/ ctx[15][/*legendColor*/ ctx[48]].fill);
+    			attr_dev(circle, "stroke", circle_stroke_value = /*cols*/ ctx[15][/*legendColor*/ ctx[48]].fill);
+    			add_location(circle, file, 354, 4, 11137);
+    			attr_dev(text_1, "x", 20 + /*i*/ ctx[50] * 140);
     			attr_dev(text_1, "y", 304);
     			attr_dev(text_1, "font-size", 12);
-    			attr_dev(text_1, "fill", /*cols*/ ctx[8][/*legendColor*/ ctx[17]].stroke);
-    			add_location(text_1, file, 203, 2, 5915);
+    			attr_dev(text_1, "fill", text_1_fill_value = /*cols*/ ctx[15][/*legendColor*/ ctx[48]].fill);
+    			add_location(text_1, file, 361, 4, 11281);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, circle, anchor);
     			insert_dev(target, text_1, anchor);
     			append_dev(text_1, t);
     		},
-    		p: noop,
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*cols*/ 32768 && circle_fill_value !== (circle_fill_value = /*cols*/ ctx[15][/*legendColor*/ ctx[48]].fill)) {
+    				attr_dev(circle, "fill", circle_fill_value);
+    			}
+
+    			if (dirty[0] & /*cols*/ 32768 && circle_stroke_value !== (circle_stroke_value = /*cols*/ ctx[15][/*legendColor*/ ctx[48]].fill)) {
+    				attr_dev(circle, "stroke", circle_stroke_value);
+    			}
+
+    			if (dirty[0] & /*cols*/ 32768 && t_value !== (t_value = /*legendColor*/ ctx[48] + "")) set_data_dev(t, t_value);
+
+    			if (dirty[0] & /*cols*/ 32768 && text_1_fill_value !== (text_1_fill_value = /*cols*/ ctx[15][/*legendColor*/ ctx[48]].fill)) {
+    				attr_dev(text_1, "fill", text_1_fill_value);
+    			}
+    		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(circle);
     			if (detaching) detach_dev(text_1);
@@ -3311,7 +3690,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(202:2) {#each Object.keys(cols) as legendColor,i}",
+    		source: "(354:2) {#each Object.keys(cols) as legendColor, i}",
     		ctx
     	});
 
@@ -3327,29 +3706,105 @@ var app = (function () {
     	let input1;
     	let t2;
     	let t3;
+    	let label2;
+    	let t4;
+    	let input2;
+    	let t5;
+    	let input3;
+    	let t6;
+    	let label3;
+    	let t7;
+    	let input4;
+    	let t8;
+    	let label4;
+    	let t9;
+    	let input5;
+    	let t10;
+    	let input6;
+    	let t11;
+    	let label5;
+    	let t12;
+    	let input7;
+    	let t13;
+    	let input8;
+    	let t14;
+    	let label6;
+    	let t15;
+    	let input9;
+    	let t16;
+    	let input10;
+    	let t17;
+    	let label7;
+    	let t18;
+    	let input11;
+    	let t19;
+    	let input12;
+    	let t20;
+    	let label8;
+    	let t21;
+    	let input13;
+    	let t22;
+    	let label9;
+    	let t23;
+    	let input14;
+    	let t24;
+    	let label10;
+    	let t25;
+    	let input15;
+    	let t26;
+    	let label11;
+    	let t27;
+    	let input16;
+    	let t28;
+    	let label12;
+    	let t29;
+    	let input17;
+    	let t30;
     	let svg;
     	let each0_anchor;
     	let each1_anchor;
     	let each2_anchor;
+    	let each3_anchor;
+    	let each4_anchor;
+    	let t31;
+    	let label13;
+    	let t32;
+    	let input18;
     	let mounted;
     	let dispose;
-    	let each_value_4 = /*lineData*/ ctx[6];
-    	validate_each_argument(each_value_4);
+    	let each_value_7 = /*lineData*/ ctx[20];
+    	validate_each_argument(each_value_7);
+    	let each_blocks_5 = [];
+
+    	for (let i = 0; i < each_value_7.length; i += 1) {
+    		each_blocks_5[i] = create_each_block_7(get_each_context_7(ctx, each_value_7, i));
+    	}
+
+    	let each_value_6 = /*splitData*/ ctx[21];
+    	validate_each_argument(each_value_6);
+    	let each_blocks_4 = [];
+
+    	for (let i = 0; i < each_value_6.length; i += 1) {
+    		each_blocks_4[i] = create_each_block_6(get_each_context_6(ctx, each_value_6, i));
+    	}
+
+    	let each_value_5 = /*splitData*/ ctx[21];
+    	validate_each_argument(each_value_5);
     	let each_blocks_3 = [];
 
-    	for (let i = 0; i < each_value_4.length; i += 1) {
-    		each_blocks_3[i] = create_each_block_4(get_each_context_4(ctx, each_value_4, i));
+    	for (let i = 0; i < each_value_5.length; i += 1) {
+    		each_blocks_3[i] = create_each_block_5(get_each_context_5(ctx, each_value_5, i));
     	}
 
-    	let each_value_3 = /*splitData*/ ctx[10];
-    	validate_each_argument(each_value_3);
+    	let each_value_2 = /*vizHierarchyData*/ ctx[19];
+    	validate_each_argument(each_value_2);
     	let each_blocks_2 = [];
 
-    	for (let i = 0; i < each_value_3.length; i += 1) {
-    		each_blocks_2[i] = create_each_block_3(get_each_context_3(ctx, each_value_3, i));
+    	for (let i = 0; i < each_value_2.length; i += 1) {
+    		each_blocks_2[i] = create_each_block_2(get_each_context_2(ctx, each_value_2, i));
     	}
 
-    	let each_value_1 = /*vizHierarchyData*/ ctx[5];
+    	let each_value_1 = /*boundaryChanges*/ ctx[22];
     	validate_each_argument(each_value_1);
     	let each_blocks_1 = [];
 
@@ -3357,7 +3812,7 @@ var app = (function () {
     		each_blocks_1[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
     	}
 
-    	let each_value = Object.keys(/*cols*/ ctx[8]);
+    	let each_value = Object.keys(/*cols*/ ctx[15]);
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
@@ -3373,41 +3828,198 @@ var app = (function () {
     			t1 = space();
     			label1 = element("label");
     			input1 = element("input");
-    			t2 = text("\n  Keep Huizhou in the middle");
+    			t2 = text("\n  Compact");
     			t3 = space();
+    			label2 = element("label");
+    			t4 = text("Connecting lines stroke width\n  ");
+    			input2 = element("input");
+    			t5 = space();
+    			input3 = element("input");
+    			t6 = space();
+    			label3 = element("label");
+    			t7 = text("Connecting line colour:\n  ");
+    			input4 = element("input");
+    			t8 = space();
+    			label4 = element("label");
+    			t9 = text("Background connecting lines stroke width\n  ");
+    			input5 = element("input");
+    			t10 = space();
+    			input6 = element("input");
+    			t11 = space();
+    			label5 = element("label");
+    			t12 = text("Outer circles radius\n  ");
+    			input7 = element("input");
+    			t13 = space();
+    			input8 = element("input");
+    			t14 = space();
+    			label6 = element("label");
+    			t15 = text("Inner circles radius\n  ");
+    			input9 = element("input");
+    			t16 = space();
+    			input10 = element("input");
+    			t17 = space();
+    			label7 = element("label");
+    			t18 = text("Vertical spacing\n  ");
+    			input11 = element("input");
+    			t19 = space();
+    			input12 = element("input");
+    			t20 = space();
+    			label8 = element("label");
+    			t21 = text("County colour:\n  ");
+    			input13 = element("input");
+    			t22 = space();
+    			label9 = element("label");
+    			t23 = text("County level city colour:\n  ");
+    			input14 = element("input");
+    			t24 = space();
+    			label10 = element("label");
+    			t25 = text("District colour:\n  ");
+    			input15 = element("input");
+    			t26 = space();
+    			label11 = element("label");
+    			t27 = text("Prefecture level city colour:\n  ");
+    			input16 = element("input");
+    			t28 = space();
+    			label12 = element("label");
+    			t29 = text("Prefecture level city colour:\n  ");
+    			input17 = element("input");
+    			t30 = space();
     			svg = svg_element("svg");
+
+    			for (let i = 0; i < each_blocks_5.length; i += 1) {
+    				each_blocks_5[i].c();
+    			}
+
+    			each0_anchor = empty();
+
+    			for (let i = 0; i < each_blocks_4.length; i += 1) {
+    				each_blocks_4[i].c();
+    			}
+
+    			each1_anchor = empty();
 
     			for (let i = 0; i < each_blocks_3.length; i += 1) {
     				each_blocks_3[i].c();
     			}
 
-    			each0_anchor = empty();
+    			each2_anchor = empty();
 
     			for (let i = 0; i < each_blocks_2.length; i += 1) {
     				each_blocks_2[i].c();
     			}
 
-    			each1_anchor = empty();
+    			each3_anchor = empty();
 
     			for (let i = 0; i < each_blocks_1.length; i += 1) {
     				each_blocks_1[i].c();
     			}
 
-    			each2_anchor = empty();
+    			each4_anchor = empty();
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
 
+    			t31 = space();
+    			label13 = element("label");
+    			t32 = text("County colour:\n  ");
+    			input18 = element("input");
     			attr_dev(input0, "type", "checkbox");
-    			add_location(input0, file, 126, 2, 3540);
-    			add_location(label0, file, 125, 0, 3530);
+    			add_location(input0, file, 189, 2, 5745);
+    			add_location(label0, file, 188, 0, 5735);
     			attr_dev(input1, "type", "checkbox");
-    			add_location(input1, file, 131, 2, 3623);
-    			add_location(label1, file, 130, 0, 3613);
+    			add_location(input1, file, 193, 2, 5827);
+    			add_location(label1, file, 192, 0, 5817);
+    			attr_dev(input2, "type", "number");
+    			attr_dev(input2, "min", "0");
+    			attr_dev(input2, "max", "10");
+    			add_location(input2, file, 199, 2, 5938);
+    			attr_dev(input3, "type", "range");
+    			attr_dev(input3, "min", "0");
+    			attr_dev(input3, "max", "10");
+    			add_location(input3, file, 200, 2, 6010);
+    			add_location(label2, file, 197, 0, 5896);
+    			attr_dev(input4, "type", "color");
+    			attr_dev(input4, "id", "favcolor");
+    			attr_dev(input4, "name", "favcolor");
+    			add_location(input4, file, 203, 2, 6136);
+    			attr_dev(label3, "for", "favcolor");
+    			add_location(label3, file, 202, 0, 6088);
+    			attr_dev(input5, "type", "number");
+    			attr_dev(input5, "min", "0");
+    			attr_dev(input5, "max", "20");
+    			add_location(input5, file, 207, 2, 6283);
+    			attr_dev(input6, "type", "range");
+    			attr_dev(input6, "min", "0");
+    			attr_dev(input6, "max", "20");
+    			add_location(input6, file, 208, 2, 6365);
+    			add_location(label4, file, 205, 0, 6230);
+    			attr_dev(input7, "type", "number");
+    			attr_dev(input7, "min", "0");
+    			attr_dev(input7, "max", "20");
+    			add_location(input7, file, 212, 2, 6486);
+    			attr_dev(input8, "type", "range");
+    			attr_dev(input8, "min", "0");
+    			attr_dev(input8, "max", "20");
+    			add_location(input8, file, 213, 2, 6560);
+    			add_location(label5, file, 210, 0, 6453);
+    			attr_dev(input9, "type", "number");
+    			attr_dev(input9, "min", "0");
+    			attr_dev(input9, "max", "20");
+    			add_location(input9, file, 217, 2, 6673);
+    			attr_dev(input10, "type", "range");
+    			attr_dev(input10, "min", "0");
+    			attr_dev(input10, "max", "20");
+    			add_location(input10, file, 218, 2, 6747);
+    			add_location(label6, file, 215, 0, 6640);
+    			attr_dev(input11, "type", "number");
+    			attr_dev(input11, "min", "0");
+    			attr_dev(input11, "max", "20");
+    			add_location(input11, file, 222, 2, 6856);
+    			attr_dev(input12, "type", "range");
+    			attr_dev(input12, "min", "0");
+    			attr_dev(input12, "max", "20");
+    			add_location(input12, file, 223, 2, 6922);
+    			add_location(label7, file, 220, 0, 6827);
+    			attr_dev(input13, "type", "color");
+    			attr_dev(input13, "id", "countycolor");
+    			attr_dev(input13, "name", "countycolor");
+    			add_location(input13, file, 226, 2, 7036);
+    			attr_dev(label8, "for", "countycolor");
+    			add_location(label8, file, 225, 0, 6994);
+    			attr_dev(input14, "type", "color");
+    			attr_dev(input14, "id", "countycitycolor");
+    			attr_dev(input14, "name", "countycitycolor");
+    			add_location(input14, file, 229, 2, 7185);
+    			attr_dev(label9, "for", "countycitycolor");
+    			add_location(label9, file, 228, 0, 7128);
+    			attr_dev(input15, "type", "color");
+    			attr_dev(input15, "id", "districtcolor");
+    			attr_dev(input15, "name", "districtcolor");
+    			add_location(input15, file, 232, 2, 7342);
+    			attr_dev(label10, "for", "countycitycolor");
+    			add_location(label10, file, 231, 0, 7294);
+    			attr_dev(input16, "type", "color");
+    			attr_dev(input16, "id", "prefecturecolor");
+    			attr_dev(input16, "name", "prefecturecolor");
+    			add_location(input16, file, 235, 2, 7501);
+    			attr_dev(label11, "for", "prefecturecolor");
+    			add_location(label11, file, 234, 0, 7440);
+    			attr_dev(input17, "type", "color");
+    			attr_dev(input17, "id", "autonomouscolor");
+    			attr_dev(input17, "name", "autonomouscolor");
+    			add_location(input17, file, 238, 2, 7675);
+    			attr_dev(label12, "for", "autonomouscolor");
+    			add_location(label12, file, 237, 0, 7614);
     			attr_dev(svg, "width", width);
-    			attr_dev(svg, "height", 400);
-    			add_location(svg, file, 134, 0, 3714);
+    			attr_dev(svg, "height", height);
+    			add_location(svg, file, 240, 0, 7785);
+    			attr_dev(input18, "type", "color");
+    			attr_dev(input18, "id", "countycolor");
+    			attr_dev(input18, "name", "countycolor");
+    			add_location(input18, file, 367, 2, 11449);
+    			attr_dev(label13, "for", "countycolor");
+    			add_location(label13, file, 366, 0, 11407);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -3415,70 +4027,292 @@ var app = (function () {
     		m: function mount(target, anchor) {
     			insert_dev(target, label0, anchor);
     			append_dev(label0, input0);
-    			input0.checked = /*highlight*/ ctx[1];
+    			input0.checked = /*highlight*/ ctx[8];
     			append_dev(label0, t0);
     			insert_dev(target, t1, anchor);
     			insert_dev(target, label1, anchor);
     			append_dev(label1, input1);
-    			input1.checked = /*keepCentral*/ ctx[0];
+    			input1.checked = /*compact*/ ctx[0];
     			append_dev(label1, t2);
     			insert_dev(target, t3, anchor);
+    			insert_dev(target, label2, anchor);
+    			append_dev(label2, t4);
+    			append_dev(label2, input2);
+    			set_input_value(input2, /*lineStrokeWidth*/ ctx[9]);
+    			append_dev(label2, t5);
+    			append_dev(label2, input3);
+    			set_input_value(input3, /*lineStrokeWidth*/ ctx[9]);
+    			insert_dev(target, t6, anchor);
+    			insert_dev(target, label3, anchor);
+    			append_dev(label3, t7);
+    			append_dev(label3, input4);
+    			set_input_value(input4, /*connectingLineColour*/ ctx[13]);
+    			insert_dev(target, t8, anchor);
+    			insert_dev(target, label4, anchor);
+    			append_dev(label4, t9);
+    			append_dev(label4, input5);
+    			set_input_value(input5, /*backgroundLineStrokeWidth*/ ctx[10]);
+    			append_dev(label4, t10);
+    			append_dev(label4, input6);
+    			set_input_value(input6, /*backgroundLineStrokeWidth*/ ctx[10]);
+    			insert_dev(target, t11, anchor);
+    			insert_dev(target, label5, anchor);
+    			append_dev(label5, t12);
+    			append_dev(label5, input7);
+    			set_input_value(input7, /*outerCircleRadius*/ ctx[11]);
+    			append_dev(label5, t13);
+    			append_dev(label5, input8);
+    			set_input_value(input8, /*outerCircleRadius*/ ctx[11]);
+    			insert_dev(target, t14, anchor);
+    			insert_dev(target, label6, anchor);
+    			append_dev(label6, t15);
+    			append_dev(label6, input9);
+    			set_input_value(input9, /*innerCircleRadius*/ ctx[12]);
+    			append_dev(label6, t16);
+    			append_dev(label6, input10);
+    			set_input_value(input10, /*innerCircleRadius*/ ctx[12]);
+    			insert_dev(target, t17, anchor);
+    			insert_dev(target, label7, anchor);
+    			append_dev(label7, t18);
+    			append_dev(label7, input11);
+    			set_input_value(input11, /*vertSpace*/ ctx[6]);
+    			append_dev(label7, t19);
+    			append_dev(label7, input12);
+    			set_input_value(input12, /*vertSpace*/ ctx[6]);
+    			insert_dev(target, t20, anchor);
+    			insert_dev(target, label8, anchor);
+    			append_dev(label8, t21);
+    			append_dev(label8, input13);
+    			set_input_value(input13, /*countyColour*/ ctx[1]);
+    			insert_dev(target, t22, anchor);
+    			insert_dev(target, label9, anchor);
+    			append_dev(label9, t23);
+    			append_dev(label9, input14);
+    			set_input_value(input14, /*countyLevelCityColour*/ ctx[2]);
+    			insert_dev(target, t24, anchor);
+    			insert_dev(target, label10, anchor);
+    			append_dev(label10, t25);
+    			append_dev(label10, input15);
+    			set_input_value(input15, /*districtColour*/ ctx[3]);
+    			insert_dev(target, t26, anchor);
+    			insert_dev(target, label11, anchor);
+    			append_dev(label11, t27);
+    			append_dev(label11, input16);
+    			set_input_value(input16, /*prefectureLevelCityColour*/ ctx[4]);
+    			insert_dev(target, t28, anchor);
+    			insert_dev(target, label12, anchor);
+    			append_dev(label12, t29);
+    			append_dev(label12, input17);
+    			set_input_value(input17, /*autonomousCountyColour*/ ctx[5]);
+    			insert_dev(target, t30, anchor);
     			insert_dev(target, svg, anchor);
+
+    			for (let i = 0; i < each_blocks_5.length; i += 1) {
+    				each_blocks_5[i].m(svg, null);
+    			}
+
+    			append_dev(svg, each0_anchor);
+
+    			for (let i = 0; i < each_blocks_4.length; i += 1) {
+    				each_blocks_4[i].m(svg, null);
+    			}
+
+    			append_dev(svg, each1_anchor);
 
     			for (let i = 0; i < each_blocks_3.length; i += 1) {
     				each_blocks_3[i].m(svg, null);
     			}
 
-    			append_dev(svg, each0_anchor);
+    			append_dev(svg, each2_anchor);
 
     			for (let i = 0; i < each_blocks_2.length; i += 1) {
     				each_blocks_2[i].m(svg, null);
     			}
 
-    			append_dev(svg, each1_anchor);
+    			append_dev(svg, each3_anchor);
 
     			for (let i = 0; i < each_blocks_1.length; i += 1) {
     				each_blocks_1[i].m(svg, null);
     			}
 
-    			append_dev(svg, each2_anchor);
+    			append_dev(svg, each4_anchor);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].m(svg, null);
     			}
 
+    			insert_dev(target, t31, anchor);
+    			insert_dev(target, label13, anchor);
+    			append_dev(label13, t32);
+    			append_dev(label13, input18);
+    			set_input_value(input18, /*countyColour*/ ctx[1]);
+
     			if (!mounted) {
     				dispose = [
-    					listen_dev(input0, "change", /*input0_change_handler*/ ctx[11]),
-    					listen_dev(input1, "change", /*input1_change_handler*/ ctx[12])
+    					listen_dev(input0, "change", /*input0_change_handler*/ ctx[23]),
+    					listen_dev(input1, "change", /*input1_change_handler*/ ctx[24]),
+    					listen_dev(input2, "input", /*input2_input_handler*/ ctx[25]),
+    					listen_dev(input3, "change", /*input3_change_input_handler*/ ctx[26]),
+    					listen_dev(input3, "input", /*input3_change_input_handler*/ ctx[26]),
+    					listen_dev(input4, "input", /*input4_input_handler*/ ctx[27]),
+    					listen_dev(input5, "input", /*input5_input_handler*/ ctx[28]),
+    					listen_dev(input6, "change", /*input6_change_input_handler*/ ctx[29]),
+    					listen_dev(input6, "input", /*input6_change_input_handler*/ ctx[29]),
+    					listen_dev(input7, "input", /*input7_input_handler*/ ctx[30]),
+    					listen_dev(input8, "change", /*input8_change_input_handler*/ ctx[31]),
+    					listen_dev(input8, "input", /*input8_change_input_handler*/ ctx[31]),
+    					listen_dev(input9, "input", /*input9_input_handler*/ ctx[32]),
+    					listen_dev(input10, "change", /*input10_change_input_handler*/ ctx[33]),
+    					listen_dev(input10, "input", /*input10_change_input_handler*/ ctx[33]),
+    					listen_dev(input11, "input", /*input11_input_handler*/ ctx[34]),
+    					listen_dev(input12, "change", /*input12_change_input_handler*/ ctx[35]),
+    					listen_dev(input12, "input", /*input12_change_input_handler*/ ctx[35]),
+    					listen_dev(input13, "input", /*input13_input_handler*/ ctx[36]),
+    					listen_dev(input14, "input", /*input14_input_handler*/ ctx[37]),
+    					listen_dev(input15, "input", /*input15_input_handler*/ ctx[38]),
+    					listen_dev(input16, "input", /*input16_input_handler*/ ctx[39]),
+    					listen_dev(input17, "input", /*input17_input_handler*/ ctx[40]),
+    					listen_dev(input18, "input", /*input18_input_handler*/ ctx[41])
     				];
 
     				mounted = true;
     			}
     		},
-    		p: function update(ctx, [dirty]) {
-    			if (dirty & /*highlight*/ 2) {
-    				input0.checked = /*highlight*/ ctx[1];
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*highlight*/ 256) {
+    				input0.checked = /*highlight*/ ctx[8];
     			}
 
-    			if (dirty & /*keepCentral*/ 1) {
-    				input1.checked = /*keepCentral*/ ctx[0];
+    			if (dirty[0] & /*compact*/ 1) {
+    				input1.checked = /*compact*/ ctx[0];
     			}
 
-    			if (dirty & /*lineGenerator, lineData, highlight, highlightIDs, dehighlightOpacity*/ 582) {
-    				each_value_4 = /*lineData*/ ctx[6];
-    				validate_each_argument(each_value_4);
+    			if (dirty[0] & /*lineStrokeWidth*/ 512 && to_number(input2.value) !== /*lineStrokeWidth*/ ctx[9]) {
+    				set_input_value(input2, /*lineStrokeWidth*/ ctx[9]);
+    			}
+
+    			if (dirty[0] & /*lineStrokeWidth*/ 512) {
+    				set_input_value(input3, /*lineStrokeWidth*/ ctx[9]);
+    			}
+
+    			if (dirty[0] & /*connectingLineColour*/ 8192) {
+    				set_input_value(input4, /*connectingLineColour*/ ctx[13]);
+    			}
+
+    			if (dirty[0] & /*backgroundLineStrokeWidth*/ 1024 && to_number(input5.value) !== /*backgroundLineStrokeWidth*/ ctx[10]) {
+    				set_input_value(input5, /*backgroundLineStrokeWidth*/ ctx[10]);
+    			}
+
+    			if (dirty[0] & /*backgroundLineStrokeWidth*/ 1024) {
+    				set_input_value(input6, /*backgroundLineStrokeWidth*/ ctx[10]);
+    			}
+
+    			if (dirty[0] & /*outerCircleRadius*/ 2048 && to_number(input7.value) !== /*outerCircleRadius*/ ctx[11]) {
+    				set_input_value(input7, /*outerCircleRadius*/ ctx[11]);
+    			}
+
+    			if (dirty[0] & /*outerCircleRadius*/ 2048) {
+    				set_input_value(input8, /*outerCircleRadius*/ ctx[11]);
+    			}
+
+    			if (dirty[0] & /*innerCircleRadius*/ 4096 && to_number(input9.value) !== /*innerCircleRadius*/ ctx[12]) {
+    				set_input_value(input9, /*innerCircleRadius*/ ctx[12]);
+    			}
+
+    			if (dirty[0] & /*innerCircleRadius*/ 4096) {
+    				set_input_value(input10, /*innerCircleRadius*/ ctx[12]);
+    			}
+
+    			if (dirty[0] & /*vertSpace*/ 64 && to_number(input11.value) !== /*vertSpace*/ ctx[6]) {
+    				set_input_value(input11, /*vertSpace*/ ctx[6]);
+    			}
+
+    			if (dirty[0] & /*vertSpace*/ 64) {
+    				set_input_value(input12, /*vertSpace*/ ctx[6]);
+    			}
+
+    			if (dirty[0] & /*countyColour*/ 2) {
+    				set_input_value(input13, /*countyColour*/ ctx[1]);
+    			}
+
+    			if (dirty[0] & /*countyLevelCityColour*/ 4) {
+    				set_input_value(input14, /*countyLevelCityColour*/ ctx[2]);
+    			}
+
+    			if (dirty[0] & /*districtColour*/ 8) {
+    				set_input_value(input15, /*districtColour*/ ctx[3]);
+    			}
+
+    			if (dirty[0] & /*prefectureLevelCityColour*/ 16) {
+    				set_input_value(input16, /*prefectureLevelCityColour*/ ctx[4]);
+    			}
+
+    			if (dirty[0] & /*autonomousCountyColour*/ 32) {
+    				set_input_value(input17, /*autonomousCountyColour*/ ctx[5]);
+    			}
+
+    			if (dirty[0] & /*lineGenerator, lineData, connectingLineColour, highlight, highlightIDs, lineStrokeWidth, backgroundLineStrokeWidth*/ 1140480) {
+    				each_value_7 = /*lineData*/ ctx[20];
+    				validate_each_argument(each_value_7);
     				let i;
 
-    				for (i = 0; i < each_value_4.length; i += 1) {
-    					const child_ctx = get_each_context_4(ctx, each_value_4, i);
+    				for (i = 0; i < each_value_7.length; i += 1) {
+    					const child_ctx = get_each_context_7(ctx, each_value_7, i);
+
+    					if (each_blocks_5[i]) {
+    						each_blocks_5[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks_5[i] = create_each_block_7(child_ctx);
+    						each_blocks_5[i].c();
+    						each_blocks_5[i].m(svg, each0_anchor);
+    					}
+    				}
+
+    				for (; i < each_blocks_5.length; i += 1) {
+    					each_blocks_5[i].d(1);
+    				}
+
+    				each_blocks_5.length = each_value_7.length;
+    			}
+
+    			if (dirty[0] & /*lineGenerator, splitData, highlight, backgroundLineStrokeWidth*/ 2114816) {
+    				each_value_6 = /*splitData*/ ctx[21];
+    				validate_each_argument(each_value_6);
+    				let i;
+
+    				for (i = 0; i < each_value_6.length; i += 1) {
+    					const child_ctx = get_each_context_6(ctx, each_value_6, i);
+
+    					if (each_blocks_4[i]) {
+    						each_blocks_4[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks_4[i] = create_each_block_6(child_ctx);
+    						each_blocks_4[i].c();
+    						each_blocks_4[i].m(svg, each1_anchor);
+    					}
+    				}
+
+    				for (; i < each_blocks_4.length; i += 1) {
+    					each_blocks_4[i].d(1);
+    				}
+
+    				each_blocks_4.length = each_value_6.length;
+    			}
+
+    			if (dirty[0] & /*lineGenerator, splitData, connectingLineColour, highlight, lineStrokeWidth*/ 2122496) {
+    				each_value_5 = /*splitData*/ ctx[21];
+    				validate_each_argument(each_value_5);
+    				let i;
+
+    				for (i = 0; i < each_value_5.length; i += 1) {
+    					const child_ctx = get_each_context_5(ctx, each_value_5, i);
 
     					if (each_blocks_3[i]) {
     						each_blocks_3[i].p(child_ctx, dirty);
     					} else {
-    						each_blocks_3[i] = create_each_block_4(child_ctx);
+    						each_blocks_3[i] = create_each_block_5(child_ctx);
     						each_blocks_3[i].c();
-    						each_blocks_3[i].m(svg, each0_anchor);
+    						each_blocks_3[i].m(svg, each2_anchor);
     					}
     				}
 
@@ -3486,23 +4320,23 @@ var app = (function () {
     					each_blocks_3[i].d(1);
     				}
 
-    				each_blocks_3.length = each_value_4.length;
+    				each_blocks_3.length = each_value_5.length;
     			}
 
-    			if (dirty & /*lineGenerator, splitData, highlight, dehighlightOpacity*/ 1538) {
-    				each_value_3 = /*splitData*/ ctx[10];
-    				validate_each_argument(each_value_3);
+    			if (dirty[0] & /*vizHierarchyData, x, vertSpace, cols, highlightIDs, highlight, divisionNames, yearExtent, innerCircleRadius, outerCircleRadius*/ 1022400) {
+    				each_value_2 = /*vizHierarchyData*/ ctx[19];
+    				validate_each_argument(each_value_2);
     				let i;
 
-    				for (i = 0; i < each_value_3.length; i += 1) {
-    					const child_ctx = get_each_context_3(ctx, each_value_3, i);
+    				for (i = 0; i < each_value_2.length; i += 1) {
+    					const child_ctx = get_each_context_2(ctx, each_value_2, i);
 
     					if (each_blocks_2[i]) {
     						each_blocks_2[i].p(child_ctx, dirty);
     					} else {
-    						each_blocks_2[i] = create_each_block_3(child_ctx);
+    						each_blocks_2[i] = create_each_block_2(child_ctx);
     						each_blocks_2[i].c();
-    						each_blocks_2[i].m(svg, each1_anchor);
+    						each_blocks_2[i].m(svg, each3_anchor);
     					}
     				}
 
@@ -3510,11 +4344,11 @@ var app = (function () {
     					each_blocks_2[i].d(1);
     				}
 
-    				each_blocks_2.length = each_value_3.length;
+    				each_blocks_2.length = each_value_2.length;
     			}
 
-    			if (dirty & /*vizHierarchyData, x, vertSpace, cols, highlightIDs, highlight, dehighlightOpacity, yearExtent*/ 446) {
-    				each_value_1 = /*vizHierarchyData*/ ctx[5];
+    			if (dirty[0] & /*x, boundaryChanges, vertSpace, districtColour*/ 4194504) {
+    				each_value_1 = /*boundaryChanges*/ ctx[22];
     				validate_each_argument(each_value_1);
     				let i;
 
@@ -3526,7 +4360,7 @@ var app = (function () {
     					} else {
     						each_blocks_1[i] = create_each_block_1(child_ctx);
     						each_blocks_1[i].c();
-    						each_blocks_1[i].m(svg, each2_anchor);
+    						each_blocks_1[i].m(svg, each4_anchor);
     					}
     				}
 
@@ -3537,8 +4371,8 @@ var app = (function () {
     				each_blocks_1.length = each_value_1.length;
     			}
 
-    			if (dirty & /*cols, Object*/ 256) {
-    				each_value = Object.keys(/*cols*/ ctx[8]);
+    			if (dirty[0] & /*cols*/ 32768) {
+    				each_value = Object.keys(/*cols*/ ctx[15]);
     				validate_each_argument(each_value);
     				let i;
 
@@ -3560,6 +4394,10 @@ var app = (function () {
 
     				each_blocks.length = each_value.length;
     			}
+
+    			if (dirty[0] & /*countyColour*/ 2) {
+    				set_input_value(input18, /*countyColour*/ ctx[1]);
+    			}
     		},
     		i: noop,
     		o: noop,
@@ -3568,11 +4406,37 @@ var app = (function () {
     			if (detaching) detach_dev(t1);
     			if (detaching) detach_dev(label1);
     			if (detaching) detach_dev(t3);
+    			if (detaching) detach_dev(label2);
+    			if (detaching) detach_dev(t6);
+    			if (detaching) detach_dev(label3);
+    			if (detaching) detach_dev(t8);
+    			if (detaching) detach_dev(label4);
+    			if (detaching) detach_dev(t11);
+    			if (detaching) detach_dev(label5);
+    			if (detaching) detach_dev(t14);
+    			if (detaching) detach_dev(label6);
+    			if (detaching) detach_dev(t17);
+    			if (detaching) detach_dev(label7);
+    			if (detaching) detach_dev(t20);
+    			if (detaching) detach_dev(label8);
+    			if (detaching) detach_dev(t22);
+    			if (detaching) detach_dev(label9);
+    			if (detaching) detach_dev(t24);
+    			if (detaching) detach_dev(label10);
+    			if (detaching) detach_dev(t26);
+    			if (detaching) detach_dev(label11);
+    			if (detaching) detach_dev(t28);
+    			if (detaching) detach_dev(label12);
+    			if (detaching) detach_dev(t30);
     			if (detaching) detach_dev(svg);
+    			destroy_each(each_blocks_5, detaching);
+    			destroy_each(each_blocks_4, detaching);
     			destroy_each(each_blocks_3, detaching);
     			destroy_each(each_blocks_2, detaching);
     			destroy_each(each_blocks_1, detaching);
     			destroy_each(each_blocks, detaching);
+    			if (detaching) detach_dev(t31);
+    			if (detaching) detach_dev(label13);
     			mounted = false;
     			run_all(dispose);
     		}
@@ -3591,8 +4455,10 @@ var app = (function () {
 
     const dehighlightOpacity = 0.2;
     const width = 800;
-    const height = 400;
+    const height = 500;
 
+    // Get the coordinates of a division from its id and the hierarchydata
+    // This is one array for each id, with id, year and values.year and values.y properties
     function getCoords(id, hierarchydata) {
     	let divisionCoords = hierarchydata.map(yr => {
     		let obj = {};
@@ -3614,23 +4480,62 @@ var app = (function () {
     }
 
     function instance($$self, $$props, $$invalidate) {
+    	let x;
+    	let cols;
+    	let lineGenerator;
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('App', slots, []);
-    	let keepCentral = false;
+    	let keepCentral = true;
     	let highlight = false;
+    	let compact = false;
     	const highlightIDs = [1, 2, 3, 10, 14];
+    	let lineStrokeWidth = 3;
+    	let backgroundLineStrokeWidth = 0;
+    	let outerCircleRadius = 9;
+    	let innerCircleRadius = 6;
+    	let connectingLineColour = "#cccccc";
+    	let countyColour = "#DA3B32";
+    	let countyLevelCityColour = "#000000";
+    	let districtColour = "#2F4A90";
+    	let prefectureLevelCityColour = "#bf3d81";
+    	let autonomousCountyColour = "#a2c6eb";
+
+    	const divisionNames = {
+    		Longmen: "龙门县",
+    		Boluo: "博罗县",
+    		Huiyang: "惠阳区",
+    		Huidong: "惠东县",
+    		Huicheng: "惠城区",
+    		Longchuan: "龙川县",
+    		Heping: "和平县",
+    		Lianping: "连平县",
+    		Yuancheng: "源城区",
+    		Zijin: "紫金县",
+    		Luhe: "陆河县",
+    		Haifeng: "海丰县",
+    		Lufeng: "陆丰市",
+    		Dongguan: "东莞市",
+    		"Shanwei urban": "汕尾城区",
+    		Nanshan: "南山区",
+    		Dongyuan: "东源县",
+    		Futian: "福田区",
+    		Shenzen: "宝安区",
+    		Luohu: "罗湖区",
+    		Yantian: "盐田区",
+    		Longgang: "龙岗区"
+    	};
+
     	let vizData = huizhouData;
 
     	//let vizData = kunmingData;
+    	// Extent of the years in the data
     	let yearExtent = extent(vizData, d => d.year);
 
+    	// Add some some padding left and right
     	let yearDomain = [yearExtent[0] - 1, yearExtent[1] + 1];
-    	let pointYearDomain = vizData.map(d => d.year);
-    	let x = linear().domain(yearDomain).range([60, width - 120]);
 
-    	/*let x = scalePoint()
-      .domain(pointYearDomain)
-      .range([80, 250]);*/
+    	let pointYearDomain = vizData.map(d => d.year);
+
     	let vizHierarchyData = vizData.map(d => {
     		let obj = {};
     		obj.year = d.year;
@@ -3639,9 +4544,14 @@ var app = (function () {
     	});
 
     	function returnDivisions(level, keepcentral) {
+    		// Create a D3 hierarchy from the data
     		let huizhouHierarchy = hierarchy(level.data);
+
     		let secondLevels = huizhouHierarchy.children;
+
+    		// This array will hold the divisions data, with their y positions
     		let divisions = [];
+
     		let y = 0;
 
     		secondLevels.forEach(d => {
@@ -3650,12 +4560,14 @@ var app = (function () {
     				divisionObj.data = div;
     				divisionObj.year = div.data.year;
 
+    				// The y property of each division contains the index of its vertical position
+    				// Reposition the first two downwards to keep Huizhou in the middle for 1978 and 1979
     				if (level.year === 1978 && keepcentral) {
     					divisionObj.y = divInd + y + 2;
     				} else if (level.year === 1979 && keepcentral) {
     					divisionObj.y = divInd + y + 1;
     				} else if ((level.year === 1983 || level.year === 1985) && keepcentral && div.data.divisionID !== 9 && div.data.divisionID !== 11) {
-    					divisionObj.y = divInd + y + 1;
+    					divisionObj.y = divInd + y + 1; /* Push everything down in 83 and 85 to keep Huizhou in the middle (id's 9 and 11 are the first 2 ones)  */
     				} else {
     					divisionObj.y = divInd + y;
     				}
@@ -3664,24 +4576,28 @@ var app = (function () {
     			});
 
     			divisions = divisions.concat(childDivisions);
+
+    			// shift everything 1 y-step further down after each second level
     			y += childDivisions.length + 1;
     		});
 
     		return divisions;
     	}
 
+    	// Get all the data for the lines
     	const lineData = Array.from({ length: 16 }, (_, i) => i + 1).map(d => getCoords(d, vizHierarchyData));
+
+    	// Vertical spacing between the nodes
     	let vertSpace = 14;
 
-    	let cols = {
+    	// Colours
+    	let cols2 = {
     		County: { fill: "#6CDB8B", stroke: "#1D6F1C" },
     		countyLevelCity: { fill: "#fde0ef", stroke: "#d973a8" },
     		district: { fill: "#e9a3c9", stroke: "#bf3d81" },
     		prefectureLevelCity: { fill: "#bf3d81", stroke: "#c51b7d" },
     		AutonomousCounty: { fill: "#a2c6eb", stroke: "#2d6196" }
     	};
-
-    	const lineGenerator = line().x(d => x(d.values.year)).y(d => 20 + d.values.y * vertSpace).defined(d => d.values.y !== null).curve(bumpX);
 
     	const splitData = [
     		[
@@ -3698,6 +4614,12 @@ var app = (function () {
     		]
     	];
 
+    	const boundaryChanges = [
+    		{ year: 2003, y: 4, status: "district" },
+    		{ year: 2003, y: 5, status: "shrink" },
+    		{ year: 2003, y: 6, status: "shrink" }
+    	];
+
     	const writable_props = [];
 
     	Object_1.keys($$props).forEach(key => {
@@ -3706,12 +4628,97 @@ var app = (function () {
 
     	function input0_change_handler() {
     		highlight = this.checked;
-    		$$invalidate(1, highlight);
+    		$$invalidate(8, highlight);
     	}
 
     	function input1_change_handler() {
-    		keepCentral = this.checked;
-    		$$invalidate(0, keepCentral);
+    		compact = this.checked;
+    		$$invalidate(0, compact);
+    	}
+
+    	function input2_input_handler() {
+    		lineStrokeWidth = to_number(this.value);
+    		$$invalidate(9, lineStrokeWidth);
+    	}
+
+    	function input3_change_input_handler() {
+    		lineStrokeWidth = to_number(this.value);
+    		$$invalidate(9, lineStrokeWidth);
+    	}
+
+    	function input4_input_handler() {
+    		connectingLineColour = this.value;
+    		$$invalidate(13, connectingLineColour);
+    	}
+
+    	function input5_input_handler() {
+    		backgroundLineStrokeWidth = to_number(this.value);
+    		$$invalidate(10, backgroundLineStrokeWidth);
+    	}
+
+    	function input6_change_input_handler() {
+    		backgroundLineStrokeWidth = to_number(this.value);
+    		$$invalidate(10, backgroundLineStrokeWidth);
+    	}
+
+    	function input7_input_handler() {
+    		outerCircleRadius = to_number(this.value);
+    		$$invalidate(11, outerCircleRadius);
+    	}
+
+    	function input8_change_input_handler() {
+    		outerCircleRadius = to_number(this.value);
+    		$$invalidate(11, outerCircleRadius);
+    	}
+
+    	function input9_input_handler() {
+    		innerCircleRadius = to_number(this.value);
+    		$$invalidate(12, innerCircleRadius);
+    	}
+
+    	function input10_change_input_handler() {
+    		innerCircleRadius = to_number(this.value);
+    		$$invalidate(12, innerCircleRadius);
+    	}
+
+    	function input11_input_handler() {
+    		vertSpace = to_number(this.value);
+    		$$invalidate(6, vertSpace);
+    	}
+
+    	function input12_change_input_handler() {
+    		vertSpace = to_number(this.value);
+    		$$invalidate(6, vertSpace);
+    	}
+
+    	function input13_input_handler() {
+    		countyColour = this.value;
+    		$$invalidate(1, countyColour);
+    	}
+
+    	function input14_input_handler() {
+    		countyLevelCityColour = this.value;
+    		$$invalidate(2, countyLevelCityColour);
+    	}
+
+    	function input15_input_handler() {
+    		districtColour = this.value;
+    		$$invalidate(3, districtColour);
+    	}
+
+    	function input16_input_handler() {
+    		prefectureLevelCityColour = this.value;
+    		$$invalidate(4, prefectureLevelCityColour);
+    	}
+
+    	function input17_input_handler() {
+    		autonomousCountyColour = this.value;
+    		$$invalidate(5, autonomousCountyColour);
+    	}
+
+    	function input18_input_handler() {
+    		countyColour = this.value;
+    		$$invalidate(1, countyColour);
     	}
 
     	$$self.$capture_state = () => ({
@@ -3725,63 +4732,150 @@ var app = (function () {
     		extent,
     		keepCentral,
     		highlight,
+    		compact,
     		highlightIDs,
     		dehighlightOpacity,
+    		lineStrokeWidth,
+    		backgroundLineStrokeWidth,
+    		outerCircleRadius,
+    		innerCircleRadius,
+    		connectingLineColour,
+    		countyColour,
+    		countyLevelCityColour,
+    		districtColour,
+    		prefectureLevelCityColour,
+    		autonomousCountyColour,
+    		divisionNames,
     		vizData,
     		yearExtent,
     		yearDomain,
     		pointYearDomain,
     		width,
     		height,
-    		x,
     		vizHierarchyData,
     		returnDivisions,
     		getCoords,
     		lineData,
     		vertSpace,
-    		cols,
+    		cols2,
+    		splitData,
+    		boundaryChanges,
+    		x,
     		lineGenerator,
-    		splitData
+    		cols
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ('keepCentral' in $$props) $$invalidate(0, keepCentral = $$props.keepCentral);
-    		if ('highlight' in $$props) $$invalidate(1, highlight = $$props.highlight);
+    		if ('keepCentral' in $$props) keepCentral = $$props.keepCentral;
+    		if ('highlight' in $$props) $$invalidate(8, highlight = $$props.highlight);
+    		if ('compact' in $$props) $$invalidate(0, compact = $$props.compact);
+    		if ('lineStrokeWidth' in $$props) $$invalidate(9, lineStrokeWidth = $$props.lineStrokeWidth);
+    		if ('backgroundLineStrokeWidth' in $$props) $$invalidate(10, backgroundLineStrokeWidth = $$props.backgroundLineStrokeWidth);
+    		if ('outerCircleRadius' in $$props) $$invalidate(11, outerCircleRadius = $$props.outerCircleRadius);
+    		if ('innerCircleRadius' in $$props) $$invalidate(12, innerCircleRadius = $$props.innerCircleRadius);
+    		if ('connectingLineColour' in $$props) $$invalidate(13, connectingLineColour = $$props.connectingLineColour);
+    		if ('countyColour' in $$props) $$invalidate(1, countyColour = $$props.countyColour);
+    		if ('countyLevelCityColour' in $$props) $$invalidate(2, countyLevelCityColour = $$props.countyLevelCityColour);
+    		if ('districtColour' in $$props) $$invalidate(3, districtColour = $$props.districtColour);
+    		if ('prefectureLevelCityColour' in $$props) $$invalidate(4, prefectureLevelCityColour = $$props.prefectureLevelCityColour);
+    		if ('autonomousCountyColour' in $$props) $$invalidate(5, autonomousCountyColour = $$props.autonomousCountyColour);
     		if ('vizData' in $$props) vizData = $$props.vizData;
-    		if ('yearExtent' in $$props) $$invalidate(3, yearExtent = $$props.yearExtent);
-    		if ('yearDomain' in $$props) yearDomain = $$props.yearDomain;
-    		if ('pointYearDomain' in $$props) pointYearDomain = $$props.pointYearDomain;
-    		if ('x' in $$props) $$invalidate(4, x = $$props.x);
-    		if ('vizHierarchyData' in $$props) $$invalidate(5, vizHierarchyData = $$props.vizHierarchyData);
-    		if ('vertSpace' in $$props) $$invalidate(7, vertSpace = $$props.vertSpace);
-    		if ('cols' in $$props) $$invalidate(8, cols = $$props.cols);
+    		if ('yearExtent' in $$props) $$invalidate(18, yearExtent = $$props.yearExtent);
+    		if ('yearDomain' in $$props) $$invalidate(44, yearDomain = $$props.yearDomain);
+    		if ('pointYearDomain' in $$props) $$invalidate(45, pointYearDomain = $$props.pointYearDomain);
+    		if ('vizHierarchyData' in $$props) $$invalidate(19, vizHierarchyData = $$props.vizHierarchyData);
+    		if ('vertSpace' in $$props) $$invalidate(6, vertSpace = $$props.vertSpace);
+    		if ('cols2' in $$props) cols2 = $$props.cols2;
+    		if ('x' in $$props) $$invalidate(7, x = $$props.x);
+    		if ('lineGenerator' in $$props) $$invalidate(14, lineGenerator = $$props.lineGenerator);
+    		if ('cols' in $$props) $$invalidate(15, cols = $$props.cols);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty[0] & /*compact*/ 1) {
+    			$$invalidate(7, x = compact
+    			? point().domain(pointYearDomain).range([80, 250])
+    			: linear().domain(yearDomain).range([60, width - 120]));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*countyColour, countyLevelCityColour, districtColour, prefectureLevelCityColour, autonomousCountyColour*/ 62) {
+    			$$invalidate(15, cols = {
+    				County: { fill: countyColour, stroke: "#ffffff" },
+    				countyLevelCity: {
+    					fill: countyLevelCityColour,
+    					stroke: "#ffffff"
+    				},
+    				district: { fill: districtColour, stroke: "#ffffff" },
+    				prefectureLevelCity: {
+    					fill: prefectureLevelCityColour,
+    					stroke: "#ffffff"
+    				},
+    				AutonomousCounty: {
+    					fill: autonomousCountyColour,
+    					stroke: "#2d6196"
+    				}
+    			});
+    		}
+
+    		if ($$self.$$.dirty[0] & /*x, vertSpace*/ 192) {
+    			$$invalidate(14, lineGenerator = line().x(d => x(d.values.year)).y(d => 20 + d.values.y * vertSpace).defined(d => d.values.y !== null).curve(bumpX));
+    		}
+    	};
+
     	return [
-    		keepCentral,
-    		highlight,
-    		highlightIDs,
-    		yearExtent,
+    		compact,
+    		countyColour,
+    		countyLevelCityColour,
+    		districtColour,
+    		prefectureLevelCityColour,
+    		autonomousCountyColour,
+    		vertSpace,
     		x,
+    		highlight,
+    		lineStrokeWidth,
+    		backgroundLineStrokeWidth,
+    		outerCircleRadius,
+    		innerCircleRadius,
+    		connectingLineColour,
+    		lineGenerator,
+    		cols,
+    		highlightIDs,
+    		divisionNames,
+    		yearExtent,
     		vizHierarchyData,
     		lineData,
-    		vertSpace,
-    		cols,
-    		lineGenerator,
     		splitData,
+    		boundaryChanges,
     		input0_change_handler,
-    		input1_change_handler
+    		input1_change_handler,
+    		input2_input_handler,
+    		input3_change_input_handler,
+    		input4_input_handler,
+    		input5_input_handler,
+    		input6_change_input_handler,
+    		input7_input_handler,
+    		input8_change_input_handler,
+    		input9_input_handler,
+    		input10_change_input_handler,
+    		input11_input_handler,
+    		input12_change_input_handler,
+    		input13_input_handler,
+    		input14_input_handler,
+    		input15_input_handler,
+    		input16_input_handler,
+    		input17_input_handler,
+    		input18_input_handler
     	];
     }
 
     class App extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance, create_fragment, safe_not_equal, {});
+    		init(this, options, instance, create_fragment, safe_not_equal, {}, null, [-1, -1, -1]);
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,

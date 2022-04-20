@@ -228,7 +228,7 @@ export let huizhouData = [
           status: "Prefecture-level city",
           children: [
             { divisionID: 15, name: "Yuancheng", status: "district" },
-            { divisionID: 16, name: "Jiao", status: "district" },
+            { divisionID: 16, name: "Dongyuan", status: "district" },
           ],
         },
         {
@@ -285,7 +285,7 @@ export let huizhouData = [
           status: "Prefecture-level city",
           children: [
             { divisionID: 15, name: "Yuancheng", status: "district" },
-            { divisionID: 16, name: "Jiao", status: "district" },
+            { divisionID: 16, name: "Dongyuan", status: "district" },
           ],
         },
         {
